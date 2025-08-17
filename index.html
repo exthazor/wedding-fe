@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Wedding Invitation Collection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Press+Start+2P&family=Kalam:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kalam', cursive;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        /* Theme selector */
+        .theme-selector {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .theme-selector h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d79ff, #ff6b6b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowText 3s ease infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes rainbowText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .theme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .theme-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .theme-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .theme-btn:hover::before {
+            left: 0;
+        }
+        
+        .theme-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-ghibli {
+            background: linear-gradient(45deg, #87CEEB, #98FB98);
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.4);
+        }
+        
+        .btn-ghibli::before {
+            background: linear-gradient(45deg, #98FB98, #87CEEB);
+        }
+        
+        .btn-witcher {
+            background: linear-gradient(45deg, #50A6C2, #E0E0E0);
+            color: #16213e;
+            box-shadow: 0 5px 15px rgba(80, 166, 194, 0.4);
+        }
+        
+        .btn-witcher::before {
+            background: linear-gradient(45deg, #E0E0E0, #50A6C2);
+        }
+        
+        .btn-cyberpunk {
+            background: linear-gradient(45deg, #ff0080, #00ffff);
+            color: black;
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+        }
+        
+        .btn-cyberpunk::before {
+            background: linear-gradient(45deg, #00ffff, #ff0080);
+        }
+        
+        .btn-pixel {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-pixel::before {
+            background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+        }
+        
+        /* Card container */
+        .card-wrapper {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            perspective: 1000px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.6s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: none;
+        }
+        
+        .card.active {
+            display: block;
+            animation: cardAppear 0.8s ease;
+        }
+        
+        @keyframes cardAppear {
+            0% { opacity: 0; transform: rotateY(90deg) translateY(50px); }
+            100% { opacity: 1; transform: rotateY(0deg) translateY(0px); }
+        }
+        
+        .card:hover {
+            transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Ghibli Theme */
+        .ghibli-card {
+            background: linear-gradient(135deg, #87CEEB 0%, #E6E6FA 50%, #F0F8FF 100%);
+        }
+        
+        .ghibli-header {
+            background: linear-gradient(45deg, rgba(152, 251, 152, 0.8), rgba(135, 206, 235, 0.8));
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ghibli-title {
+            font-family: 'Kalam', cursive;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            animation: gentleBounce 3s ease-in-out infinite;
+        }
+        
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating-petals {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            pointer-events: none;
+        }
+        
+        .petal {
+            position: absolute;
+            font-size: 25px;
+            animation: fallDown 8s linear infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes fallDown {
+            0% { transform: translateY(-100px) rotateZ(0deg); opacity: 1; }
+            100% { transform: translateY(400px) rotateZ(360deg); opacity: 0; }
+        }
+        
+        .totoro-scene {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            height: 60px;
+            pointer-events: none;
+        }
+        
+        .totoro-umbrella {
+            position: absolute;
+            top: 0;
+            left: 20%;
+            font-size: 2rem;
+            animation: umbrellaSwing 4s ease-in-out infinite;
+        }
+        
+        @keyframes umbrellaSwing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .catbus {
+            position: absolute;
+            top: 5px;
+            right: 20%;
+            font-size: 1.8rem;
+            animation: catbusDrive 8s linear infinite;
+        }
+        
+        @keyframes catbusDrive {
+            0% { transform: translateX(0px); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(0px); }
+        }
+        
+        .soot-sprites {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .soot {
+            display: inline-block;
+            margin: 0 3px;
+            animation: sootBounce 2s ease-in-out infinite;
+        }
+        
+        .soot:nth-child(2) { animation-delay: 0.3s; }
+        .soot:nth-child(3) { animation-delay: 0.6s; }
+        
+        @keyframes sootBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        /* --- NEW Witcher Theme --- */
+        .witcher-card {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #1a1a2e 100%);
+            color: #E0E0E0;
+            border: 3px solid #50A6C2;
+            position: relative;
+            box-shadow: 0 0 30px rgba(80, 166, 194, 0.5);
+        }
+        
+        .witcher-card::before {
+            content: "";
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background: linear-gradient(45deg, #50A6C2, #FFFFFF, #50A6C2);
+            border-radius: 25px;
+            z-index: -1;
+            animation: witcherBorderGlow 4s ease infinite;
+        }
+        
+        @keyframes witcherBorderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; box-shadow: 0 0 40px #50A6C2; }
+        }
+        
+        .witcher-header {
+            background: linear-gradient(45deg, rgba(80, 166, 194, 0.3), rgba(15, 52, 96, 0.5));
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #50A6C2;
+        }
+        
+        .medallion-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .wolf-medallion {
+            font-size: 4rem;
+            color: #E0E0E0;
+            animation: medallionVibrate 3s ease-in-out infinite;
+            text-shadow: 0 0 20px #87CEEB;
+        }
+        
+        @keyframes medallionVibrate {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        
+        .witcher-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px #87CEEB;
+            animation: witcherTitleGlow 4s ease-in-out infinite;
+            margin: 20px 0;
+        }
+        
+        @keyframes witcherTitleGlow {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px #87CEEB; }
+            50% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 30px #87CEEB, 0 0 40px #FFFFFF; }
+        }
+
+        .witcher-card .couple-names {
+            color: #FFFFFF;
+        }
+
+        .witcher-card .special-effects-btn:first-of-type {
+            background: linear-gradient(45deg, #50A6C2, #E0E0E0);
+            color: #16213e;
+        }
+
+        .witcher-card .special-effects-btn:last-of-type {
+            background: linear-gradient(45deg, #4A4A4A, #696969);
+            color: white;
+        }
+
+        .witcher-card h3, .witcher-card h4 {
+            color: #87CEEB;
+        }
+        
+        /* Cyberpunk Theme */
+        .cyberpunk-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ffff;
+            border: 2px solid #ff0080;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+        }
+        
+        .cyberpunk-header {
+            background: linear-gradient(45deg, rgba(255, 0, 128, 0.3), rgba(0, 255, 255, 0.3));
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px solid #00ffff;
+        }
+        
+        .cyberpunk-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #ff0080;
+            animation: neonFlicker 2s infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes neonFlicker {
+            0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #ff0080; }
+            100% { text-shadow: 0 0 20px #00ffff, 0 0 30px #ff0080, 0 0 40px #00ffff; }
+        }
+        
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-text::before {
+            animation: glitch1 2s infinite;
+            color: #ff0080;
+            z-index: -1;
+        }
+        
+        .glitch-text::after {
+            animation: glitch2 2s infinite;
+            color: #00ffff;
+            z-index: -2;
+        }
+        
+        @keyframes glitch1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes glitch2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, 2px); }
+            80% { transform: translate(-2px, -2px); }
+        }
+        
+        /* Pixel Theme */
+        .pixel-card {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border: 4px solid #ecf0f1;
+            image-rendering: pixelated;
+            position: relative;
+        }
+        
+        .pixel-header {
+            background: repeating-linear-gradient(
+                90deg,
+                #e74c3c 0px,
+                #e74c3c 10px,
+                #f39c12 10px,
+                #f39c12 20px,
+                #f1c40f 20px,
+                #f1c40f 30px,
+                #27ae60 30px,
+                #27ae60 40px,
+                #3498db 40px,
+                #3498db 50px,
+                #9b59b6 50px,
+                #9b59b6 60px
+            );
+            padding: 40px 30px;
+            text-align: center;
+            animation: pixelRainbow 2s linear infinite;
+        }
+        
+        @keyframes pixelRainbow {
+            0% { background-position-x: 0px; }
+            100% { background-position-x: 60px; }
+        }
+        
+        .pixel-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 4px 4px 0px #000;
+            animation: pixelBounce 1s infinite;
+        }
+        
+        @keyframes pixelBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Common content styles */
+        .card-content {
+            padding: 30px;
+        }
+        
+        .couple-names {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .wedding-details {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .special-effects-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-effects-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .special-effects-btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .special-effects-btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Timeline styles */
+        .timeline-chapter {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid;
+            position: relative;
+            text-align: left;
+        }
+        
+        .chapter-icon {
+            font-size: 3rem;
+            margin-right: 20px;
+            animation: chapterPulse 3s infinite;
+        }
+        
+        @keyframes chapterPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .modal-close-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .themed-form h3 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .themed-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .themed-form input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid;
+            font-size: 1rem;
+            background: transparent;
+        }
+        
+        .themed-form input:focus {
+            outline: none;
+        }
+
+        .themed-form button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        /* Ghibli Modal Theme */
+        #ghibli-modal .modal-content {
+            background: linear-gradient(135deg, #f0fff0, #e6e6fa);
+            border: 3px solid #98FB98;
+            font-family: 'Kalam', cursive;
+            color: #2c3e50;
+        }
+        #ghibli-modal .modal-close-btn { color: #27ae60; }
+        #ghibli-modal h3 { color: #27ae60; }
+        #ghibli-modal label { color: #34495e; }
+        #ghibli-modal input { 
+            background: white; 
+            border-color: #87CEEB; 
+            color: #2c3e50;
+        }
+        #ghibli-modal button { 
+            background: linear-gradient(45deg, #98FB98, #87CEEB); 
+            color: #2c3e50; 
+        }
+        #ghibli-modal .success-message {
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* --- NEW Witcher Modal Theme --- */
+        #witcher-modal .modal-content {
+            background: #16213e url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+            border: 3px solid #50A6C2;
+            font-family: 'Cinzel', serif;
+            color: #E0E0E0;
+        }
+        #witcher-modal .modal-close-btn { color: #87CEEB; }
+        #witcher-modal h3 { color: #FFFFFF; text-shadow: 0 0 10px #87CEEB; }
+        #witcher-modal label { color: #A0A0A0; }
+        #witcher-modal input { 
+            border-color: #50A6C2; 
+            color: #E0E0E0; 
+        }
+        #witcher-modal input:focus {
+            box-shadow: 0 0 15px -2px #87CEEB;
+        }
+        #witcher-modal button { 
+            background: linear-gradient(45deg, #50A6C2, #E0E0E0); 
+            color: #16213e; 
+        }
+        #witcher-modal .success-message {
+            font-size: 1.3rem;
+        }
+
+        /* Cyberpunk Modal Theme */
+        #cyberpunk-modal .modal-content {
+            background: #0a0a0a;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px #ff0080;
+            font-family: 'Orbitron', monospace;
+            color: #00ffff;
+        }
+        #cyberpunk-modal .modal-close-btn { color: #ff0080; }
+        #cyberpunk-modal h3 { color: #ff0080; text-shadow: 0 0 10px #ff0080; }
+        #cyberpunk-modal label { color: #00ffff; }
+        #cyberpunk-modal input { 
+            border: none;
+            border-bottom: 2px solid #ff0080;
+            border-radius: 0;
+            color: #00ff00; 
+            caret-color: #00ff00;
+        }
+        #cyberpunk-modal input:focus { outline: none; box-shadow: 0 5px 15px -5px #ff0080; }
+        #cyberpunk-modal button { 
+            background: linear-gradient(45deg, #00ff00, #00ffff); 
+            color: black; 
+        }
+        #cyberpunk-modal .success-message {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        /* Pixel Modal Theme */
+        #pixel-modal .modal-content {
+            background: #2c3e50;
+            border: 4px solid #fff;
+            box-shadow: 8px 8px 0px #000;
+            image-rendering: pixelated;
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+        }
+        #pixel-modal .modal-close-btn { color: #e74c3c; }
+        #pixel-modal h3 { color: #f39c12; font-size: 1.2rem; }
+        #pixel-modal label { font-size: 0.8rem; }
+        #pixel-modal input { 
+            background: #34495e; 
+            border-color: #fff;
+            border-radius: 0; 
+            color: white; 
+        }
+        #pixel-modal button { 
+            background: #27ae60; 
+            color: white; 
+            border-radius: 0;
+            box-shadow: 4px 4px 0px #1c6a3e;
+            transition: all 0.1s;
+        }
+        #pixel-modal button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #1c6a3e;
+        }
+        #pixel-modal .success-message {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 600px) {
+            .theme-selector h1 {
+                font-size: 2rem;
+            }
+            
+            .theme-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card-wrapper {
+                margin: 0 10px 30px;
+            }
+            
+            .cyberpunk-title,
+            .ghibli-title,
+            .witcher-title {
+                font-size: 1.8rem;
+            }
+            
+            .pixel-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="theme-selector">
+        <h1>✨ CHOOSE YOUR WEDDING ADVENTURE ✨</h1>
+        <p style="color: white; font-size: 1.2rem; margin-bottom: 20px;">
+            Select a theme that matches your love story!
+        </p>
+        
+        <div class="theme-buttons">
+            <button class="theme-btn btn-ghibli" onclick="showCard('ghibli')">
+                🌸 Studio Ghibli Magic
+            </button>
+            <button class="theme-btn btn-witcher" onclick="showCard('witcher')">
+                🐺 The Witcher Saga
+            </button>
+            <button class="theme-btn btn-cyberpunk" onclick="showCard('cyberpunk')">
+                🤖 Cyberpunk 2077
+            </button>
+            <button class="theme-btn btn-pixel" onclick="showCard('pixel')">
+                🎮 Retro Pixel Art
+            </button>
+        </div>
+    </div>
+    
+    <!-- Enhanced Ghibli Card -->
+    <div class="card-wrapper">
+        <div class="card ghibli-card" id="ghibli-card">
+            <div class="ghibli-header">
+                <div class="floating-petals"></div>
+                <div class="totoro-scene">
+                    <div class="totoro-umbrella">☂️</div>
+                    <div class="catbus">🚌</div>
+                    <div class="soot-sprites">
+                        <span class="soot">⚫</span>
+                        <span class="soot">⚫</span>
+                        <span class="soot">⚫</span>
+                    </div>
+                </div>
+                <div class="ghibli-title">A Magical Beginning</div>
+                <p style="font-size: 1.1rem; color: #2c3e50; margin-top: 15px; font-style: italic;">
+                    "Like scenes from the most beautiful dreams..."
+                </p>
+            </div>
+            
+            <div class="card-content">
+                <div class="kiki-delivery" style="display: flex; justify-content: center; align-items: center; margin: 20px 0; padding: 15px; background: rgba(138, 43, 226, 0.2); border-radius: 15px; border: 2px solid #DDA0DD;">
+                    <span style="font-size: 2rem; margin-right: 15px;">🧙‍♀️</span>
+                    <span style="font-family: 'Kalam', cursive; color: #8e44ad; font-weight: bold; font-size: 1.1rem;">Special Delivery from the Heart</span>
+                    <span style="font-size: 1.5rem; margin-left: 15px;">🐱</span>
+                </div>
+                
+                <div class="couple-names" style="color: #2c3e50; font-family: 'Kalam', cursive; position: relative; font-size: 2.2rem;">
+                    🌸 Rhitam & Rojika 🌸
+                    <div style="height: 3px; background: linear-gradient(90deg, #98FB98, #87CEEB, #98FB98); margin: 10px auto; width: 80%; border-radius: 2px;"></div>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.4); border: 3px solid rgba(152, 251, 152, 0.6); border-radius: 20px; padding: 25px; margin: 25px 0; position: relative; backdrop-filter: blur(5px);">
+                    <div style="position: absolute; top: -15px; right: 20px; font-size: 2.5rem;">🌙</div>
+                    <p style="color: #34495e; font-size: 1.15rem; line-height: 1.7; margin: 25px 0; text-align: center;">
+                        Like <strong>Totoro watching over the forest</strong>, <strong>Kiki finding her purpose</strong>, 
+                        <strong>Princess Kaguya's celestial love</strong>, and <strong>Porco's adventures in the sky</strong>... 
+                        some stories are destined to become timeless. Our love story is one of them. 
+                        Join us as we begin our greatest adventure together! 🌟
+                    </p>
+                    <div style="position: absolute; bottom: -15px; left: 30px; font-size: 2rem;">✈️</div>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <h3 style="color: #27ae60; font-family: 'Kalam', cursive; text-align: center; margin-bottom: 25px; font-size: 1.4rem;">
+                        🌿 Our Magical Day - Chapter by Chapter 🌿
+                    </h3>
+                    
+                    <div class="timeline-chapter" style="background: rgba(152, 251, 152, 0.3); border-left-color: #27ae60;">
+                        <div class="chapter-icon">🌳</div>
+                        <div>
+                            <h4 style="color: #27ae60; font-family: 'Kalam', cursive;">Chapter 1: The Ceremony</h4>
+                            <p style="color: #2c3e50;"><strong>When:</strong> [Wedding Date] at [Time]</p>
+                            <p style="color: #7f8c8d; font-style: italic;">"Where our hearts first say 'I do' under Totoro's blessing"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-chapter" style="background: rgba(138, 43, 226, 0.2); border-left-color: #8e44ad;">
+                        <div class="chapter-icon">🧙‍♀️</div>
+                        <div>
+                            <h4 style="color: #8e44ad; font-family: 'Kalam', cursive;">Chapter 2: The Journey Begins</h4>
+                            <p style="color: #2c3e50;"><strong>Where:</strong> [Venue Name]</p>
+                            <p style="color: #2c3e50;"><strong>Location:</strong> [Full Address]</p>
+                            <p style="color: #7f8c8d; font-style: italic;">"Like Kiki's first delivery, our new life takes flight"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-chapter" style="background: rgba(255, 182, 193, 0.3); border-left-color: #e91e63;">
+                        <div class="chapter-icon">🌸</div>
+                        <div>
+                            <h4 style="color: #e91e63; font-family: 'Kalam', cursive;">Chapter 3: The Celebration</h4>
+                            <p style="color: #2c3e50;"><strong>What:</strong> Dinner, Dancing & Dreams</p>
+                            <p style="color: #7f8c8d; font-style: italic;">"As beautiful as Kaguya's celestial court"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(135, 206, 235, 0.3); border: 3px dashed #87CEEB; border-radius: 15px; padding: 25px; margin: 25px 0; text-align: center;">
+                    <p style="color: #27ae60; text-align: center; margin: 15px 0; font-family: 'Kalam', cursive;">
+                        "Will you wait with us at the bus stop of love?"
+                    </p>
+                </div>
+                
+                <div style="background: rgba(138, 43, 226, 0.1); border: 2px solid #DDA0DD; border-radius: 15px; padding: 25px; text-align: center; margin-top: 25px;">
+                    <h3 style="color: #27ae60; font-family: 'Kalam', cursive; margin: 20px 0; text-align: center;">
+                        The Soot Sprites Are Collecting Responses! 🌟
+                    </h3>
+                    
+                    <button class="special-effects-btn" onclick="openModal('ghibli')" style="background: linear-gradient(45deg, #98FB98, #87CEEB); color: #2c3e50; font-family: 'Kalam', cursive; margin: 10px;">
+                        🌸 Yes! I'll join your story!
+                    </button>
+                    <button class="special-effects-btn" onclick="ghibliMagic(event)" style="background: linear-gradient(45deg, #DDA0DD, #F0E68C); color: #2c3e50; font-family: 'Kalam', cursive; margin: 10px;">
+                        📱 Send via Howl's Moving Castle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Witcher Card -->
+   <div class="card-wrapper">
+        <div class="card witcher-card" id="witcher-card">
+            <div class="witcher-header">
+                <div class="medallion-container">
+                    <div class="wolf-medallion">🐺</div>
+                </div>
+                <div class="witcher-title">THE CONJUNCTION OF HEARTS</div>
+                <p style="font-size: 1.1rem; color: #E0E0E0; margin-top: 15px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+                    "Destiny is a strange thing... and ours has led us here."
+                </p>
+                <div class="witcher-signs">
+                    <span class="sign">🔥</span>
+                    <span class="sign">💨</span>
+                    <span class="sign">⚡</span>
+                    <span class="sign">🛡️</span>
+                    <span class="sign">🌀</span>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <div style="background: rgba(139, 0, 0, 0.3); border: 3px solid #8B0000; border-radius: 15px; padding: 25px; margin: 20px 0;">
+                    <h3 style="color: #FFD700; font-family: 'Cinzel', serif; text-align: center; margin-bottom: 20px;">
+                        📜 THE BALLAD OF TWO SOULS 📜
+                    </h3>
+                    
+                    <p style="color: #D3D3D3; font-size: 1.1rem; line-height: 1.7; text-align: center; font-style: italic;">
+                        In the Northern Kingdoms, where destiny weaves its threads, 
+                        two souls found each other against all odds. Like Geralt and Yennefer, 
+                        their bond transcends magic itself. This is their story... their legend... their beginning.
+                    </p>
+                    
+                    <div class="couple-names" style="color: #FFD700; font-family: 'Cinzel', serif; text-align: center; font-size: 2.3rem; margin: 25px 0;">
+                        <span style="margin: 0 15px;">🐺</span>
+                        Rhitam & Rojika
+                        <span style="margin: 0 15px;">🐺</span>
+                        <div style="font-size: 1.2rem; color: #D3D3D3; font-style: italic; margin-top: 10px;">~ Bound by Destiny ~</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0, 0, 0, 0.3); border: 2px solid #50A6C2; border-radius: 15px; padding: 25px; margin: 25px 0;">
+                    <h3>
+                        ⚔️ WEDDING CONTRACT ⚔️
+                    </h3>
+                    
+                    <div style="display: flex; align-items: center; margin: 20px 0; padding: 15px; background: rgba(139, 0, 0, 0.2); border-radius: 10px; border-left: 4px solid #FFD700;">
+                        <div style="font-size: 2.5rem; margin-right: 20px;">🏰</div>
+                        <div>
+                            <h4 style="color: #FFD700; font-family: 'Cinzel', serif;">The Sacred Ceremony</h4>
+                            <p style="color: #D3D3D3;"><strong>Date of Destiny:</strong> [Wedding Date]</p>
+                            <p style="color: #D3D3D3;"><strong>Hour of Power:</strong> [Time]</p>
+                            <p style="color: #A0A0A0; font-style: italic; font-size: 0.9rem;">"When vows are spoken under ancient blessings"</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; margin: 20px 0; padding: 15px; background: rgba(139, 0, 0, 0.2); border-radius: 10px; border-left: 4px solid #FFD700;">
+                        <div style="font-size: 2.5rem; margin-right: 20px;">📚</div>
+                        <div>
+                            <h4 style="color: #FFD700; font-family: 'Cinzel', serif;">The Grand Celebration</h4>
+                            <p style="color: #D3D3D3;"><strong>Location:</strong> [Venue Name]</p>
+                            <p style="color: #D3D3D3;"><strong>Coordinates:</strong> [Full Address]</p>
+                            <p style="color: #A0A0A0; font-style: italic; font-size: 0.9rem;">"Where songs will be sung of this legendary union"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0, 0, 0, 0.7); border: 3px solid #8B0000; border-radius: 15px; padding: 25px; margin: 25px 0; text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                        <span style="font-size: 2.5rem; color: #FFD700;">🐺</span>
+                        <span style="font-size: 2.5rem; color: #32CD32;">🐱</span>
+                        <span style="font-size: 2.5rem; color: #FF4500;">🦅</span>
+                        <span style="font-size: 2.5rem; color: #8B4513;">🐻</span>
+                    </div>
+                    <h4 style="color: #8B0000; font-family: 'Cinzel', serif; margin: 20px 0 15px;">
+                        BLESSING OF THE WITCHER SCHOOLS
+                    </h4>
+                    <p style="color: #D3D3D3; font-style: italic; line-height: 1.6;">
+                        "By Wolf, Cat, Griffin, and Bear - may your love be as enduring as a Witcher's oath, 
+                        as fierce as their blade, and as protective as their medallion."
+                    </p>
+                </div>
+                
+                <div style="text-align: center; margin: 25px 0;">
+                    <h3 style="color: #8B0000; font-family: 'Cinzel', serif; margin-bottom: 15px;">
+                        ⚔️ ACCEPT THE CONTRACT ⚔️
+                    </h3>
+                    
+                    <button class="special-effects-btn" onclick="openModal('witcher')" style="background: linear-gradient(45deg, #8B0000, #FF4500); color: #FFD700; font-family: 'Cinzel', serif; font-weight: bold; margin: 10px;">
+                        ⚔️ I ACCEPT THIS CONTRACT
+                    </button>
+                    <button class="special-effects-btn" onclick="witcherMagic(event)" style="background: linear-gradient(45deg, #4A4A4A, #696969); color: white; font-family: 'Cinzel', serif; margin: 10px;">
+                        📱 Send via Megascope
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cyberpunk Card -->
+    <div class="card-wrapper">
+        <div class="card cyberpunk-card" id="cyberpunk-card">
+            <div class="cyberpunk-header">
+                <div class="cyberpunk-title">
+                    <span class="glitch-text" data-text="NEURAL LINK ESTABLISHED">NEURAL LINK ESTABLISHED</span>
+                </div>
+                <p style="font-size: 1rem; color: #00ffff; margin-top: 15px; text-transform: uppercase;">
+                    Connection Status: LOVE.exe Running
+                </p>
+            </div>
+            
+            <div class="card-content">
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #00ffff; border-radius: 10px; margin: 20px 0; font-family: 'Orbitron', monospace;">
+                    <div style="background: rgba(0, 255, 255, 0.2); padding: 10px; border-bottom: 1px solid #00ffff; font-size: 0.8rem; color: #00ffff;">
+                        <span style="color: #ff0080;">●</span>
+                        <span style="color: #ffd700;">●</span>
+                        <span style="color: #00ff00;">●</span>
+                        <span style="margin-left: 10px;">WEDDING_PROTOCOL_2025.exe</span>
+                    </div>
+                    
+                    <div style="padding: 20px; text-align: left;">
+                        <div style="margin: 5px 0; font-size: 0.9rem; color: #00ff00;"><span style="color: #ff0080; margin-right: 5px;">></span> import love_module</div>
+                        <div style="margin: 5px 0; font-size: 0.9rem; color: #00ff00;"><span style="color: #ff0080; margin-right: 5px;">></span> initialize_wedding_sequence()</div>
+                        <div style="margin: 5px 0; font-size: 0.9rem; color: #888;">// Scanning for compatible partners...</div>
+                        <div style="margin: 5px 0; font-size: 0.9rem; color: #00ff00; text-shadow: 0 0 5px #00ff00;">✓ MATCH FOUND: 100% COMPATIBILITY</div>
+                        <div style="margin: 10px 0;"></div>
+                        <div class="couple-names" style="color: #00ffff; font-family: 'Orbitron', monospace; text-transform: uppercase; text-align: center; margin: 20px 0;">
+                            &lt;USER_1&gt; Rhitam & Rojika &lt;USER_2&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255, 0, 128, 0.1); border: 2px solid #ff0080; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                    <h3 style="color: #ff0080; font-family: 'Orbitron', monospace; margin-bottom: 15px;">⚡ SYSTEM SPECIFICATIONS</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                            <span style="color: #ffd700; font-weight: bold;">BOOT_DATE:</span>
+                            <span style="color: #00ffff;">[Wedding Date]</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                            <span style="color: #ffd700; font-weight: bold;">RUNTIME:</span>
+                            <span style="color: #00ffff;">[Time]</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                            <span style="color: #ffd700; font-weight: bold;">SERVER_LOC:</span>
+                            <span style="color: #00ffff;">[Venue Name]</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                            <span style="color: #ffd700; font-weight: bold;">GPS_COORDS:</span>
+                            <span style="color: #00ffff;">[Address]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ffd700; border-radius: 10px; padding: 20px; text-align: center;">
+                    <p style="color: #ffd700; margin-bottom: 15px; font-family: 'Orbitron', monospace;">
+                        CONFIRM YOUR PARTICIPATION IN THE RESISTANCE:
+                    </p>
+                    <button class="special-effects-btn" onclick="openModal('cyberpunk')" style="background: linear-gradient(45deg, #00ff00, #00ffff); color: black; font-family: 'Orbitron', monospace; margin: 10px;">
+                        ✓ CONFIRM_ATTENDANCE.exe
+                    </button>
+                    <button class="special-effects-btn" onclick="cyberpunkHack(event)" style="background: linear-gradient(45deg, #ff0080, #ffd700); color: black; font-family: 'Orbitron', monospace; margin: 10px;">
+                        📱 INITIATE_COMMS_LINK
+                    </button>
+                </div>
+                <div style="text-align: center; margin: 20px 0;">
+                    <p style="color: #888; font-style: italic; font-family: 'Orbitron', monospace; font-size: 0.8rem;">
+                        "In Night City, love is the ultimate upgrade" 💖<br>
+                        Contact: [Your Contact] | Encrypted Channel Only
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pixel Card -->
+    <div class="card-wrapper">
+        <div class="card pixel-card" id="pixel-card">
+            <div class="pixel-header">
+                <div class="pixel-title">GAME START!</div>
+                <p style="font-size: 0.9rem; color: white; margin-top: 15px; font-family: 'Press Start 2P', cursive;">
+                    PLAYER 1 + PLAYER 2 = TRUE LOVE
+                </p>
+            </div>
+            
+            <div class="card-content">
+                <div style="background: rgba(0, 0, 0, 0.8); border: 4px solid #ecf0f1; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; margin: 10px 0; color: white; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">
+                            <span>HP:</span>
+                            <div style="width: 100px; height: 10px; background: #333; border: 2px solid #fff; margin: 0 10px; position: relative;">
+                                <div style="width: 100%; height: 100%; background: linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f);"></div>
+                            </div>
+                            <span>♥♥♥♥♥</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin: 10px 0; color: white; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">
+                            <span>LOVE:</span>
+                            <span style="color: #f1c40f; margin-left: 10px;">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 0.8rem; margin-bottom: 15px;">☁️ ☁️ ☁️</div>
+                        <div class="couple-names" style="color: white; font-family: 'Press Start 2P', cursive; font-size: 1.3rem; margin: 20px 0;">
+                            👾 Rhitam & Rojika 👾
+                        </div>
+                        <div style="font-size: 0.8rem; margin-top: 15px;">🟫🟫🟫🟫🟫🟫🟫🟫🟫🟫</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(52, 73, 94, 0.8); border: 3px solid #ecf0f1; border-radius: 10px; padding: 20px; margin: 25px 0; text-align: left;">
+                    <h3 style="color: #f39c12; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 15px;">
+                        📖 QUEST LOG
+                    </h3>
+                    <p style="color: white; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; line-height: 1.6;">
+                        After countless adventures, grinding EXP, and collecting rare items, 
+                        our heroes have unlocked the ultimate achievement: ETERNAL LOVE! 
+                        Now they're hosting the most EPIC celebration in gaming history!
+                    </p>
+                </div>
+                
+                <div style="background: rgba(0, 0, 0, 0.6); border: 2px solid #3498db; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                    <h3 style="color: #e74c3c; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; margin-bottom: 15px;">
+                        🎮 MISSION PARAMETERS
+                    </h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                        <div style="display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">
+                            <span style="color: #f39c12; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; margin-bottom: 5px;">BOOT DATE:</span>
+                            <span style="color: #ecf0f1; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[Wedding Date]</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">
+                            <span style="color: #f39c12; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; margin-bottom: 5px;">START TIME:</span>
+                            <span style="color: #ecf0f1; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[Time]</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">
+                            <span style="color: #f39c12; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; margin-bottom: 5px;">MAP LOCATION:</span>
+                            <span style="color: #ecf0f1; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[Venue Name]</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 5px;">
+                            <span style="color: #f39c12; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; margin-bottom: 5px;">COORDINATES:</span>
+                            <span style="color: #ecf0f1; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[Address]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(231, 76, 60, 0.3); border: 3px solid #e74c3c; border-radius: 10px; padding: 25px; margin: 25px 0; text-align: center;">
+                    <h3 style="color: #e74c3c; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; margin-bottom: 15px;">
+                        🕹️ PLAYER INPUT REQUIRED
+                    </h3>
+                    <p style="color: white; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 20px;">
+                        WILL YOU JOIN OUR GUILD FOR THIS EPIC RAID?
+                    </p>
+                    <button class="special-effects-btn" onclick="openModal('pixel')" style="background: linear-gradient(45deg, #27ae60, #2ecc71); color: white; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin: 10px;">
+                        ▶ PRESS A - JOIN PARTY!
+                    </button>
+                    <button class="special-effects-btn" onclick="pixelPower(event)" style="background: linear-gradient(45deg, #3498db, #2980b9); color: white; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin: 10px;">
+                        📱 PRESS B - SEND MESSAGE
+                    </button>
+                </div>
+                <div style="background: rgba(0, 0, 0, 0.6); border: 2px solid #95a5a6; border-radius: 10px; padding: 15px; margin: 20px 0; text-align: center;">
+                    <p style="color: #bdc3c7; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; line-height: 1.5;">
+                        GAME MASTER: [Your Contact]<br>
+                        LOOT TABLE: [Registry Info]<br>
+                        DIFFICULTY: EASY & FUN<br>
+                        SAVE POINT: UNLIMITED MEMORIES
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Themed Modals -->
+    <div id="ghibli-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <form id="ghibli-form" class="themed-form">
+                <h3>Join Our Magical Story 🍃</h3>
+                <div class="form-group">
+                    <label for="ghibli-fname">First Name:</label>
+                    <input type="text" id="ghibli-fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="ghibli-lname">Last Name:</label>
+                    <input type="text" id="ghibli-lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="ghibli-phone">Magic Phone (Number):</label>
+                    <input type="tel" id="ghibli-phone" required>
+                </div>
+                <button type="submit">Send with the Wind 🌸</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="witcher-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <form id="witcher-form" class="themed-form">
+                <h3>Sign the Guest Scroll 📜</h3>
+                <div class="form-group">
+                    <label for="witcher-fname">Given Name:</label>
+                    <input type="text" id="witcher-fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="witcher-lname">Surname:</label>
+                    <input type="text" id="witcher-lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="witcher-phone">Contact via Raven (Phone):</label>
+                    <input type="tel" id="witcher-phone" required>
+                </div>
+                <button type="submit">Seal the Contract 🐺</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cyberpunk-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <form id="cyberpunk-form" class="themed-form">
+                <h3>//: Authenticate Identity</h3>
+                <div class="form-group">
+                    <label for="cyberpunk-fname">> First_Name:</label>
+                    <input type="text" id="cyberpunk-fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="cyberpunk-lname">> Last_Name:</label>
+                    <input type="text" id="cyberpunk-lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="cyberpunk-phone">> Comms_Link (Phone):</label>
+                    <input type="tel" id="cyberpunk-phone" required>
+                </div>
+                <button type="submit">EXECUTE_RSVP.bat</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="pixel-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <form id="pixel-modal-form" class="themed-form">
+                <h3>PLAYER REGISTRATION</h3>
+                <div class="form-group">
+                    <label for="pixel-fname">FIRST NAME:</label>
+                    <input type="text" id="pixel-fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pixel-lname">LAST NAME:</label>
+                    <input type="text" id="pixel-lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pixel-phone">PHONE NO:</label>
+                    <input type="tel" id="pixel-phone" required>
+                </div>
+                <button type="submit">SAVE & CONTINUE</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        // Initialize background stars
+        function createStars() {
+            const bgAnimation = document.querySelector('.bg-animation');
+            if (bgAnimation.children.length > 0) return; // Don't create stars if they exist
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                bgAnimation.appendChild(star);
+            }
+        }
+
+        // Create floating petals for Ghibli theme
+        function createPetals() {
+            const petalsContainer = document.querySelector('.floating-petals');
+            if (!petalsContainer || petalsContainer.children.length > 0) return;
+            
+            const petals = ['🌸', '🌺', '🍃', '✨', '🌙'];
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = petals[Math.floor(Math.random() * petals.length)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (Math.random() * 5 + 7) + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                petalsContainer.appendChild(petal);
+            }
+        }
+
+        // Show specific card
+        function showCard(theme) {
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+            const targetCard = document.getElementById(theme + '-card');
+            if (targetCard) {
+                targetCard.classList.add('active');
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (theme === 'ghibli') {
+                    setTimeout(createPetals, 500); 
+                }
+            }
+        }
+        
+        // --- Modal Functionality ---
+        function openModal(theme) {
+            const modal = document.getElementById(theme + '-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+                // Reset form if it was submitted
+                const form = modal.querySelector('.themed-form');
+                const successMsg = modal.querySelector('.success-message');
+                if (successMsg) {
+                    form.style.display = 'block';
+                    successMsg.remove();
+                }
+            });
+        }
+
+        // --- Special effects functions ---
+        function createMagicalParticle(emoji, theme) {
+            const particle = document.createElement('div');
+            particle.innerHTML = emoji;
+            particle.style.position = 'fixed';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = Math.random() * window.innerHeight + 'px';
+            particle.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9999';
+            
+            if (theme === 'ghibli') particle.style.textShadow = '0 0 10px white';
+            else if (theme === 'cyberpunk') {
+                particle.style.color = Math.random() > 0.5 ? '#00ffff' : '#ff0080';
+                particle.style.textShadow = '0 0 10px currentColor';
+            } else if (theme === 'witcher') {
+                particle.style.color = Math.random() > 0.5 ? '#FFD700' : '#8B0000';
+                particle.style.textShadow = '0 0 15px currentColor';
+            } else if (theme === 'pixel') {
+                particle.style.imageRendering = 'pixelated';
+                particle.style.textShadow = '2px 2px 0px #000';
+            }
+            
+            document.body.appendChild(particle);
+            
+            const angle = Math.random() * 360;
+            const distance = Math.random() * 300 + 100;
+            const duration = Math.random() * 2000 + 1500;
+            
+            particle.animate([
+                { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: 1 },
+                { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) rotate(360deg) scale(0)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            }).onfinish = () => {
+                if (document.body.contains(particle)) {
+                    document.body.removeChild(particle);
+                }
+            };
+        }
+
+        function ghibliMagic(event) {
+            const effects = ['🌸', '🌺', '✨', '🌙', '🍃', '💖', '🦋', '🌟'];
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createMagicalParticle(effects[Math.floor(Math.random() * effects.length)], 'ghibli');
+                }, i * 100);
+            }
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '🌟 Magic Cast Successfully!';
+            setTimeout(() => btn.innerHTML = original, 3000);
+        }
+        
+        function witcherMagic(event) {
+            const effects = ['⚔️', '🐺', '🔥', '⚡', '🛡️', '🌀', '💀', '🏰', '🍷', '💎'];
+            document.body.style.animation = 'none';
+            setTimeout(() => { document.body.style.animation = 'medallionShake 0.8s'; }, 10);
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createMagicalParticle(effects[Math.floor(Math.random() * effects.length)], 'witcher');
+                }, i * 100);
+            }
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '🐺 CONTRACT ACCEPTED!';
+            setTimeout(() => btn.innerHTML = original, 3000);
+        }
+        
+        function cyberpunkHack(event) {
+            const effects = ['⚡', '💾', '🔥', '⚠️', '💻', '🤖', '🔴', '🟢'];
+            document.body.style.animation = 'none';
+            setTimeout(() => { document.body.style.animation = 'screenFlicker 0.5s'; }, 10);
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    createMagicalParticle(effects[Math.floor(Math.random() * effects.length)], 'cyberpunk');
+                }, i * 80);
+            }
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '💀 SYSTEM HACKED!';
+            setTimeout(() => btn.innerHTML = original, 3000);
+        }
+        
+        function pixelPower(event) {
+            const effects = ['🎮', '👾', '🕹️', '⭐', '💥', '🎯', '🔸', '🔹'];
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    createMagicalParticle(effects[Math.floor(Math.random() * effects.length)], 'pixel');
+                }, i * 60);
+            }
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '🎊 PLAYER JOINED!';
+            setTimeout(() => btn.innerHTML = original, 3000);
+        }
+        
+        // --- Event Listeners and Initialization ---
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes screenFlicker { 0%, 100% { filter: none; } 25% { filter: brightness(1.5) contrast(1.2); } 50% { filter: brightness(0.8) contrast(1.5); } 75% { filter: brightness(1.2) contrast(0.8); } }
+            @keyframes medallionShake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); } 20%, 40%, 60%, 80% { transform: translateX(3px); } }
+        `;
+        document.head.appendChild(style);
+        
+        window.addEventListener('load', () => {
+            createStars();
+            setTimeout(() => showCard('ghibli'), 1500);
+        });
+        
+        // Modal Close Listeners
+        document.querySelectorAll('.modal-close-btn').forEach(btn => btn.addEventListener('click', closeModal));
+        window.addEventListener('click', (event) => {
+            if (event.target.classList.contains('modal-overlay')) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Form Submission Logic
+        document.querySelectorAll('.themed-form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const firstName = this.querySelector('input[type="text"]').value;
+                const modalContent = this.parentElement;
+                
+                let successHTML = '';
+                const theme = modalContent.parentElement.id.replace('-modal', '');
+
+                switch(theme) {
+                    case 'ghibli':
+                        successHTML = `<div class="success-message">Thank you, ${firstName}! ✨<br>The forest spirits have received your message!</div>`;
+                        break;
+                    case 'witcher':
+                        successHTML = `<div class="success-message">Well met, ${firstName}.<br>Your name is on the guest list. Destiny awaits. 🐺</div>`;
+                        break;
+                    case 'cyberpunk':
+                        successHTML = `<div class="success-message"> > AUTHENTICATION COMPLETE.<br>> USER: ${firstName.toUpperCase()} ADDED.<br>> WELCOME TO THE CREW.</div>`;
+                        break;
+                    case 'pixel':
+                        successHTML = `<div class="success-message">LEVEL UP!<br>${firstName.toUpperCase()} has joined the party!</div>`;
+                        break;
+                }
+                
+                this.style.display = 'none';
+                modalContent.insertAdjacentHTML('beforeend', successHTML);
+
+                setTimeout(closeModal, 4000); // Close modal after 4 seconds
+            });
+        });
+    </script>
+</body>
+</html>
