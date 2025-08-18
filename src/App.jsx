@@ -18,9 +18,12 @@ const App = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    phone: ''
+    phone: '',
+    email: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const particleIdRef = useRef(0);
 
   // Initialize stars on mount
@@ -85,13 +88,17 @@ const App = () => {
   const handleModalOpen = (theme) => {
     setOpenModal(theme);
     setIsSubmitted(false);
-    setFormData({ firstName: '', lastName: '', phone: '' });
+    setIsSubmitting(false);
+    setSubmitError(null);
+    setFormData({ firstName: '', lastName: '', phone: '', email: '' });
   };
 
   const handleModalClose = () => {
     setOpenModal(null);
     setIsSubmitted(false);
-    setFormData({ firstName: '', lastName: '', phone: '' });
+    setIsSubmitting(false);
+    setSubmitError(null);
+    setFormData({ firstName: '', lastName: '', phone: '', email: '' });
   };
 
   const handleInputChange = (field, value) => {
@@ -276,6 +283,8 @@ const App = () => {
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
         isSubmitted={isSubmitted}
+        isSubmitting={isSubmitting}
+        submitError={submitError}
         getSuccessMessage={getSuccessMessage}
       />
     </div>

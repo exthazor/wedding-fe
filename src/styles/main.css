@@ -667,7 +667,7 @@ body {
         }
         #ghibli-modal .modal-close-btn { color: #27ae60; }
         #ghibli-modal h3 { color: #27ae60; }
-        #ghibli-modal label { color: #34495e; }
+        #ghibli-modal label { color: #000000; font-weight: bold; }
         #ghibli-modal input { 
             background: white; 
             border-color: #87CEEB; 
@@ -746,7 +746,7 @@ body {
         }
         #pixel-modal .modal-close-btn { color: #e74c3c; }
         #pixel-modal h3 { color: #f39c12; font-size: 1.2rem; }
-        #pixel-modal label { font-size: 0.8rem; }
+        #pixel-modal label { color: #fff; font-size: 0.8rem; }
         #pixel-modal input { 
             background: #34495e; 
             border-color: #fff;

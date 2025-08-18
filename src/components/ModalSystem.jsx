@@ -64,7 +64,7 @@ const ModalSystem = ({
         {!isSubmitted ? (
           <form className="themed-form" onSubmit={onSubmit}>
             <h3>{labels.title}</h3>
-            
+            <input type="hidden" name="theme" value={openModal} />
             {submitError && (
               <div style={{ 
                 color: 'red', 
