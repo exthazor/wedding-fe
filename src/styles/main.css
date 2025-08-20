@@ -30,11 +30,6 @@ body {
     animation: twinkle 3s infinite;
 }
         
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
-}
-        
 .theme-selector {
     text-align: center;
     padding: 30px 20px;
@@ -56,11 +51,11 @@ body {
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
 }
         
-        @keyframes rainbowText {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    @keyframes rainbowText {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
         
         .theme-buttons {
             display: flex;
@@ -1026,6 +1021,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important;
+  }
+
   .carousel-overlay {
     bottom: 15px;
     padding: 0 20px;
@@ -1208,11 +1207,6 @@ body {
 @keyframes gentleFloat {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
 }
 
 @keyframes holoScan {

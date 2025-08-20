@@ -5,8 +5,12 @@ const PhotoCarousel = () => {
   
   const photos = [
     {
+      src: '/photos/photo_2.jpg', // Traditional outfit
+      position: 'center 40%'
+    },
+    {
       src: '/photos/photo_3.jpg', // Resort photo
-      position: 'center 60%'
+      position: 'center 65%'
     },
     {
       src: '/photos/photo_4.jpg', // Comic Con outfit
@@ -14,11 +18,11 @@ const PhotoCarousel = () => {
     },
     {
       src: '/photos/photo_1.jpg', // Motorcycle photo
-      position: 'center 35%'
+      position: 'center 30%'
     },
     {
-      src: '/photos/photo_2.jpg', // Traditional outfit
-      position: 'top'
+      src: '/photos/photo_5.jpg', // Birthday outfit
+      position: 'center 43%'
     }
   ];
 
