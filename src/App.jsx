@@ -128,20 +128,26 @@ const MusicControl = () => (
 );
 
   const handleModalOpen = (theme) => {
-    setOpenModal(theme);
-    setIsSubmitted(false);
-    setIsSubmitting(false);
-    setSubmitError(null);
-    setFormData({ firstName: '', lastName: '', phone: '', email: '' });
-  };
+  document.body.classList.add('modal-open');
+  document.body.style.background = 'linear-gradient(45deg, #1a1a2e, #16213e, #0f3460)';
+  
+  setOpenModal(theme);
+  setIsSubmitted(false);
+  setIsSubmitting(false);
+  setSubmitError(null);
+  setFormData({ firstName: '', lastName: '', phone: '', email: '' });
+};
 
   const handleModalClose = () => {
-    setOpenModal(null);
-    setIsSubmitted(false);
-    setIsSubmitting(false);
-    setSubmitError(null);
-    setFormData({ firstName: '', lastName: '', phone: '', email: '' });
-  };
+  document.body.classList.remove('modal-open');
+  document.body.style.background = '';
+  
+  setOpenModal(null);
+  setIsSubmitted(false);
+  setIsSubmitting(false);
+  setSubmitError(null);
+  setFormData({ firstName: '', lastName: '', phone: '', email: '' });
+};
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));

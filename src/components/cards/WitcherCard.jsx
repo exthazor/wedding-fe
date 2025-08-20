@@ -161,7 +161,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                     fontWeight: 'bold'
                   }}>HERO</div>
                   
-                  <div style={{ fontSize: '3rem', margin: '20px 0 10px 0' }}>🤵</div>
+                  <img src ="/photos/rhitam_witcher.png" alt="Rhitam Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
                   
                   <div style={{
                     color: '#D4AF37',
@@ -258,7 +258,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                     fontWeight: 'bold'
                   }}>HERO</div>
                   
-                  <div style={{ fontSize: '3rem', margin: '20px 0 10px 0' }}>👰</div>
+                  <img src="/photos/rojika_witcher.png" alt="Rojika Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
                   
                   <div style={{
                     color: '#D4AF37',
