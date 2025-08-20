@@ -23,6 +23,22 @@ const PhotoCarousel = () => {
     {
       src: '/photos/photo_5.jpg', // Birthday outfit
       position: 'center 43%'
+    },
+    {
+      src: '/photos/photo_6.jpg',
+      position: 'center 52%'
+    },
+    {
+      src: '/photos/photo_7.jpg',
+      position: 'center 58%'
+    },
+    {
+      src: '/photos/photo_8.jpg',
+      position: 'center 45%'
+    },
+    {
+      src: '/photos/photo_9.jpg',
+      position: 'center 55%'
     }
   ];
 

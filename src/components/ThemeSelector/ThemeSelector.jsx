@@ -3,7 +3,7 @@ const ThemeSelector = ({ onThemeSelect }) => {
     <div className="theme-selector">
       <h1>✨ YOU'RE INVITED TO OUR WEDDING! ✨</h1>
       <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '20px' }}>
-        Pick the style that feels most like YOU!
+        Choose from one of our favourite themes below!
       </p>
       
       <div className="theme-buttons">
