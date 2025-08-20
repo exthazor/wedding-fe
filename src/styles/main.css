@@ -176,20 +176,19 @@ body {
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
         
-        /* Ghibli Theme */
+        /* Ghibli Theme -- UPDATED */
         .ghibli-card {
-            background: linear-gradient(135deg, #87CEEB 0%, #E6E6FA 10%, #F0F8FF 20%);
             position: relative;
+            /* Moved styles from JSX to here */
+            background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/textures/watercolor-paper.jpg);
+            background-blend-mode: luminosity;
+            background-size: cover;
         }
-
-        .ghibli-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('public/textures/watercolor-paper.jpg');
-            opacity: 0.2; /* Keep it very subtle */
-            pointer-events: none;
-        }
+        
+        /* This ::before pseudo-element is no longer needed */
+        /*
+        .ghibli-card::before { ... }
+        */
         
         .ghibli-header {
             background: linear-gradient(45deg, rgba(152, 251, 152, 0.8), rgba(135, 206, 235, 0.8));
@@ -289,10 +288,12 @@ body {
             50% { transform: translateY(-8px); }
         }
         
-        /* --- NEW Witcher Theme --- */
+        /* Witcher Theme -- FIXED SYNTAX */
         .witcher-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%), img('/public/textures/dark-leather.png');
-            background-blend-mode: overlay; /* Blends the color and texture */
+            /* Corrected img() to url() and removed /public from path */
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%), url('/textures/dark-leather.png');
+            background-blend-mode: overlay;
+            background-size: cover;
         }
         
         .witcher-card::before {
@@ -446,205 +447,205 @@ body {
         
         /* Pixel Theme */
        .pixel-header {
-  position: relative;
-  padding: 40px 30px;
-  text-align: center;
-  background: #0a0a0a;
-  overflow: hidden;
-  border-bottom: 4px solid #fff;
-}
+          position: relative;
+          padding: 40px 30px;
+          text-align: center;
+          background: #0a0a0a;
+          overflow: hidden;
+          border-bottom: 4px solid #fff;
+        }
 
-/* Animated CRT scanlines */
-.pixel-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0px,
-    rgba(0, 255, 0, 0.03) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  animation: scanlines 0.1s linear infinite;
-  pointer-events: none;
-  z-index: 5;
-}
+        /* Animated CRT scanlines */
+        .pixel-header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            rgba(0, 255, 0, 0.03) 1px,
+            transparent 2px,
+            transparent 4px
+          );
+          animation: scanlines 0.1s linear infinite;
+          pointer-events: none;
+          z-index: 5;
+        }
 
-@keyframes scanlines {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(4px); }
-}
+        @keyframes scanlines {
+          0% { transform: translateY(0px); }
+          100% { transform: translateY(4px); }
+        }
 
-/* Matrix-style background */
-.pixel-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
-  animation: matrixFlow 8s ease-in-out infinite;
-  z-index: 1;
-}
+        /* Matrix-style background */
+        .pixel-header::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
+          animation: matrixFlow 8s ease-in-out infinite;
+          z-index: 1;
+        }
 
-@keyframes matrixFlow {
-  0%, 100% { 
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
-  }
-  33% { 
-    background: 
-      radial-gradient(circle at 60% 30%, rgba(120, 255, 120, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 30% 70%, rgba(255, 120, 120, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(120, 120, 255, 0.4) 0%, transparent 50%);
-  }
-  66% { 
-    background: 
-      radial-gradient(circle at 80% 60%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 20% 30%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 60% 90%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
-  }
-}
+        @keyframes matrixFlow {
+          0%, 100% { 
+            background: 
+              radial-gradient(circle at 20% 80%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
+          }
+          33% { 
+            background: 
+              radial-gradient(circle at 60% 30%, rgba(120, 255, 120, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 30% 70%, rgba(255, 120, 120, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(120, 120, 255, 0.4) 0%, transparent 50%);
+          }
+          66% { 
+            background: 
+              radial-gradient(circle at 80% 60%, rgba(120, 255, 120, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 20% 30%, rgba(255, 120, 120, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 60% 90%, rgba(120, 120, 255, 0.3) 0%, transparent 50%);
+          }
+        }
 
-/* Glitch grid overlay */
-.pixel-header {
-  background-image: 
-    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  animation: gridShift 4s ease-in-out infinite;
-}
+        /* Glitch grid overlay */
+        .pixel-header {
+          background-image: 
+            linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+          background-size: 20px 20px;
+          animation: gridShift 4s ease-in-out infinite;
+        }
 
-@keyframes gridShift {
-  0%, 100% { background-position: 0px 0px, 0px 0px; }
-  25% { background-position: 1px 1px, 1px 1px; }
-  50% { background-position: 0px 1px, 1px 0px; }
-  75% { background-position: 1px 0px, 0px 1px; }
-}
+        @keyframes gridShift {
+          0%, 100% { background-position: 0px 0px, 0px 0px; }
+          25% { background-position: 1px 1px, 1px 1px; }
+          50% { background-position: 0px 1px, 1px 0px; }
+          75% { background-position: 1px 0px, 0px 1px; }
+        }
 
-/* Epic title effects */
-.pixel-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.5rem;
-  color: #fff;
-  text-shadow: 
-    2px 2px 0px #000,
-    4px 4px 0px #333,
-    0 0 10px #00ff00,
-    0 0 20px #00ff00,
-    0 0 30px #00ff00;
-  animation: pixelGlow 2s ease-in-out infinite alternate, pixelShake 0.1s infinite;
-  position: relative;
-  z-index: 10;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
+        /* Epic title effects */
+        .pixel-title {
+          font-family: 'Press Start 2P', cursive;
+          font-size: 1.5rem;
+          color: #fff;
+          text-shadow: 
+            2px 2px 0px #000,
+            4px 4px 0px #333,
+            0 0 10px #00ff00,
+            0 0 20px #00ff00,
+            0 0 30px #00ff00;
+          animation: pixelGlow 2s ease-in-out infinite alternate, pixelShake 0.1s infinite;
+          position: relative;
+          z-index: 10;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
 
-@keyframes pixelGlow {
-  0% { 
-    text-shadow: 
-      2px 2px 0px #000,
-      4px 4px 0px #333,
-      0 0 10px #00ff00,
-      0 0 20px #00ff00,
-      0 0 30px #00ff00;
-  }
-  100% { 
-    text-shadow: 
-      2px 2px 0px #000,
-      4px 4px 0px #333,
-      0 0 15px #00ff00,
-      0 0 25px #00ff00,
-      0 0 35px #00ff00,
-      0 0 45px #00ff00;
-  }
-}
+        @keyframes pixelGlow {
+          0% { 
+            text-shadow: 
+              2px 2px 0px #000,
+              4px 4px 0px #333,
+              0 0 10px #00ff00,
+              0 0 20px #00ff00,
+              0 0 30px #00ff00;
+          }
+          100% { 
+            text-shadow: 
+              2px 2px 0px #000,
+              4px 4px 0px #333,
+              0 0 15px #00ff00,
+              0 0 25px #00ff00,
+              0 0 35px #00ff00,
+              0 0 45px #00ff00;
+          }
+        }
 
-@keyframes pixelShake {
-  0% { transform: translate(0); }
-  10% { transform: translate(-1px, -1px); }
-  20% { transform: translate(1px, -1px); }
-  30% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, 1px); }
-  50% { transform: translate(-1px, -1px); }
-  60% { transform: translate(1px, -1px); }
-  70% { transform: translate(-1px, 1px); }
-  80% { transform: translate(1px, 1px); }
-  90% { transform: translate(-1px, -1px); }
-  100% { transform: translate(0); }
-}
+        @keyframes pixelShake {
+          0% { transform: translate(0); }
+          10% { transform: translate(-1px, -1px); }
+          20% { transform: translate(1px, -1px); }
+          30% { transform: translate(-1px, 1px); }
+          40% { transform: translate(1px, 1px); }
+          50% { transform: translate(-1px, -1px); }
+          60% { transform: translate(1px, -1px); }
+          70% { transform: translate(-1px, 1px); }
+          80% { transform: translate(1px, 1px); }
+          90% { transform: translate(-1px, -1px); }
+          100% { transform: translate(0); }
+        }
 
-/* Subtitle enhancement */
-.pixel-header p {
-  position: relative;
-  z-index: 10;
-  text-shadow: 
-    1px 1px 0px #000,
-    2px 2px 0px #333,
-    0 0 5px #fff;
-  animation: subtitlePulse 3s ease-in-out infinite;
-}
+        /* Subtitle enhancement */
+        .pixel-header p {
+          position: relative;
+          z-index: 10;
+          text-shadow: 
+            1px 1px 0px #000,
+            2px 2px 0px #333,
+            0 0 5px #fff;
+          animation: subtitlePulse 3s ease-in-out infinite;
+        }
 
-@keyframes subtitlePulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-}
+        @keyframes subtitlePulse {
+          0%, 100% { opacity: 0.8; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.02); }
+        }
 
-/* Add floating particles */
-.pixel-header {
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
-    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-    radial-gradient(2px 2px at 160px 30px, #fff, transparent),
-    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-  background-repeat: repeat;
-  background-size: 200px 100px, 200px 100px, 200px 100px, 200px 100px, 200px 100px, 20px 20px, 20px 20px;
-  animation: 
-    gridShift 4s ease-in-out infinite,
-    particleFloat 6s linear infinite;
-}
+        /* Add floating particles */
+        .pixel-header {
+          background-image: 
+            radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+            radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+            radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+            radial-gradient(2px 2px at 160px 30px, #fff, transparent),
+            linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+          background-repeat: repeat;
+          background-size: 200px 100px, 200px 100px, 200px 100px, 200px 100px, 200px 100px, 20px 20px, 20px 20px;
+          animation: 
+            gridShift 4s ease-in-out infinite,
+            particleFloat 6s linear infinite;
+        }
 
-@keyframes particleFloat {
-  0% { background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px; }
-  100% { background-position: 200px 100px, -200px 100px, 200px -100px, -200px -100px, 200px 100px, 20px 20px, 20px 20px; }
-}
+        @keyframes particleFloat {
+          0% { background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px; }
+          100% { background-position: 200px 100px, -200px 100px, 200px -100px, -200px -100px, 200px 100px, 20px 20px, 20px 20px; }
+        }
 
-/* CRT screen curve effect */
-.pixel-header {
-  border-radius: 0 0 20px 20px;
-  box-shadow: 
-    inset 0 0 50px rgba(0, 255, 0, 0.1),
-    inset 0 0 100px rgba(0, 255, 0, 0.05),
-    0 0 50px rgba(0, 0, 0, 0.5);
-}
+        /* CRT screen curve effect */
+        .pixel-header {
+          border-radius: 0 0 20px 20px;
+          box-shadow: 
+            inset 0 0 50px rgba(0, 255, 0, 0.1),
+            inset 0 0 100px rgba(0, 255, 0, 0.05),
+            0 0 50px rgba(0, 0, 0, 0.5);
+        }
 
-/* Add retro screen flicker */
-@keyframes screenFlicker {
-  0%, 100% { opacity: 1; }
-  98% { opacity: 1; }
-  99% { opacity: 0.98; }
-  99.5% { opacity: 1; }
-}
+        /* Add retro screen flicker */
+        @keyframes screenFlicker {
+          0%, 100% { opacity: 1; }
+          98% { opacity: 1; }
+          99% { opacity: 0.98; }
+          99.5% { opacity: 1; }
+        }
 
-.pixel-header {
-  animation: 
-    gridShift 4s ease-in-out infinite,
-    particleFloat 6s linear infinite,
-    screenFlicker 0.15s infinite linear;
-}
+        .pixel-header {
+          animation: 
+            gridShift 4s ease-in-out infinite,
+            particleFloat 6s linear infinite,
+            screenFlicker 0.15s infinite linear;
+        }
         
         /* Common content styles */
         .card-content {

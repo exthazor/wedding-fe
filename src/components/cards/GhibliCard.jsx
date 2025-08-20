@@ -5,85 +5,83 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
         className={`card ghibli-card ${isActive ? 'active' : ''}`} 
         id="ghibli-card"
       >
-<div className="ghibli-header" style={{ 
-  background: 'linear-gradient(180deg, #87CEEB 0%, #E6E6FA 60%, #F0F8FF 100%)',
-  position: 'relative',
-  overflow: 'hidden',
-  padding: '30px',
-  textAlign: 'center',
-  borderBottom: '4px solid rgba(255, 255, 255, 0.5)' // Added a subtle border for effect
-}}>
-  {/* Gentle floating petals remain in the background */}
-  <div className="floating-petals">
-    {petals.map(petal => (
-      <div
-        key={petal.id}
-        className="petal"
-        style={{
-          left: `${petal.left}%`,
-          animationDuration: `${petal.duration}s`,
-          animationDelay: `${petal.delay}s`,
-          fontSize: '18px',
-          opacity: 0.7
-        }}
-      >
-        {petal.emoji}
-      </div>
-    ))}
-  </div>
-  
-  {/* NEW: Container for the logo elements */}
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative', // Ensures it's on top of petals
-    zIndex: 1
-  }}>
-    {/* NEW: Totoro Icon */}
-    {/* For best results, replace the text character '⚫' with a real Totoro silhouette SVG or transparent PNG */}
-    <img 
-      src="totoro.svg" // Example path, use your own icon
-      alt="Totoro silhouette" 
-      style={{ 
-        width: '250px', 
-        height: 'auto', 
-        marginBottom: '5px',
-        // Optional filter to force the blue color onto an SVG
-        filter: 'invert(26%) sepia(99%) saturate(1313%) hue-rotate(187deg) brightness(93%) contrast(101%)'
-      }} 
-    />
+        {/* Header with Totoro SVG */}
+        <div className="ghibli-header" style={{ 
+          background: 'linear-gradient(180deg, #87CEEB 0%, #B6D8F2 70%, #F0F8FF 100%)',
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '25px',
+          textAlign: 'center',
+          borderBottom: '4px solid rgba(255, 255, 255, 0.6)'
+        }}>
+          {/* Floating petals */}
+          <div className="floating-petals">
+            {petals.map(petal => (
+              <div
+                key={petal.id}
+                className="petal"
+                style={{
+                  left: `${petal.left}%`,
+                  animationDuration: `${petal.duration}s`,
+                  animationDelay: `${petal.delay}s`,
+                  fontSize: '18px',
+                  opacity: 0.7
+                }}
+              >
+                {petal.emoji}
+              </div>
+            ))}
+          </div>
+          
+          {/* Totoro SVG Logo */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            <img 
+              src="totoro.svg" 
+              alt="Totoro silhouette" 
+              style={{ 
+                width: '140px', 
+                height: 'auto', 
+                marginBottom: '15px',
+                filter: 'invert(26%) sepia(99%) saturate(1313%) hue-rotate(187deg) brightness(93%) contrast(101%)'
+              }} 
+            />
 
-    {/* UPDATED: The Main Title */}
-    <div style={{ 
-      fontSize: '2.2rem', // Adjusted for boldness
-      fontFamily: "'Crete Round', serif",
-      color: '#005A9C',
-      fontWeight: 'bold',
-      letterSpacing: '1px' 
-      // REMOVED: textShadow and animation for a solid, static logo feel
-    }}>
-      Rhitam & Rojika 
-    </div>
-  </div>
-  
-  {/* UPDATED: Subtitle */}
-  <p style={{ 
-    fontSize: '1rem', 
-    color: '#2c3e50', 
-    fontStyle: 'italic',
-    fontFamily: "'Kalam', cursive",
-    marginTop: '15px',
-    position: 'relative',
-    zIndex: 1
-  }}>
-    Invite you to their magical beginning
-  </p>
-</div>
+            {/* Title with Amatic SC font */}
+            <div style={{ 
+              fontSize: '3.5rem',
+              fontFamily: "'Amatic SC', cursive",
+              color: '#005A9C',
+              fontWeight: '700',
+              lineHeight: '1',
+              letterSpacing: '2px',
+              textShadow: '2px 2px 4px rgba(255,255,255,0.5)'
+            }}>
+              Rhitam & Rojika 
+            </div>
+          </div>
+          
+          {/* Subtitle */}
+          <p style={{ 
+            fontSize: '1.5rem', 
+            color: '#2c3e50', 
+            fontFamily: "'Amatic SC', cursive",
+            marginTop: '15px',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            Invite you to their magical beginning
+          </p>
+        </div>
         
         <div className="card-content" style={{ padding: '25px' }}>
-          {/* Kiki's Delivery Banner */}
+          {/* Kiki's Delivery Banner with SVGs */}
           <div style={{ 
             background: 'linear-gradient(135deg, rgba(142, 68, 173, 0.1) 0%, rgba(255, 182, 193, 0.15) 50%, rgba(135, 206, 235, 0.1) 100%)',
             border: '3px solid transparent',
@@ -94,7 +92,6 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             overflow: 'hidden',
             backgroundClip: 'padding-box'
           }}>
-            {/* Animated border */}
             <div style={{
               position: 'absolute',
               top: 0, left: 0, right: 0, bottom: 0,
@@ -105,7 +102,6 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               zIndex: -1
             }}></div>
             
-            {/* Content */}
             <div style={{ 
               background: 'rgba(255, 255, 255, 0.9)',
               borderRadius: '20px',
@@ -115,278 +111,164 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               justifyContent: 'center',
               gap: '15px'
             }}>
-              <span style={{ 
-                fontSize: '2.5rem',
-                animation: 'magicPulse 2s ease-in-out infinite'
-              }}>🧙‍♀️</span>
+              <img 
+                src="/icons/witch_kiki.svg" 
+                alt="Witch icon" 
+                style={{ 
+                  width: '40px', 
+                  height: '40px', 
+                  animation: 'magicPulse 2s ease-in-out infinite' 
+                }}
+              />
               
               <div style={{ textAlign: 'center' }}>
                 <div style={{ 
-                  fontFamily: "'Kalam', cursive", 
+                  fontFamily: "'Amatic SC', cursive", 
                   color: '#8e44ad', 
                   fontWeight: 'bold', 
-                  fontSize: '1.3rem',
+                  fontSize: '2rem',
                   textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                 }}>
                   Special Delivery from the Heart
                 </div>
                 <div style={{ 
-                  fontSize: '0.9rem',
+                  fontSize: '1.2rem',
+                  fontFamily: "'Amatic SC', cursive",
                   color: '#7f8c8d',
-                  fontStyle: 'italic',
                   marginTop: '5px'
                 }}>
                   "Every invitation carries a piece of our soul"
                 </div>
               </div>
               
-              <span style={{ 
-                fontSize: '2rem',
-                animation: 'magicPulse 2s ease-in-out infinite 0.5s'
-              }}>🐱</span>
+              <img 
+                src="/icons/cat_jiji.svg" 
+                alt="Cat icon" 
+                style={{ 
+                  width: '32px', 
+                  height: '32px', 
+                  animation: 'magicPulse 2s ease-in-out infinite 0.5s' 
+                }}
+              />
             </div>
           </div>
-        
 
-{/* Ghibli Photo Gallery */}
-<div style={{
-  margin: '35px 0',
-  background: 'linear-gradient(135deg, rgba(152,251,152,0.1) 0%, rgba(135,206,235,0.1) 50%, rgba(240,248,255,0.2) 100%)',
-  borderRadius: '25px',
-  padding: '25px',
-  border: '3px solid rgba(152,251,152,0.3)',
-  position: 'relative',
-  overflow: 'hidden',
-  boxShadow: '0 10px 30px rgba(152,251,152,0.2)'
-}}>
-  {/* Floating elements */}
-  <div style={{
-    position: 'absolute',
-    top: '10px', left: '10px',
-    fontSize: '1.5rem',
-    animation: 'gentleFloat 4s ease-in-out infinite'
-  }}>🌸</div>
-  
-  <div style={{
-    position: 'absolute',
-    top: '15px', right: '15px',
-    fontSize: '1.3rem',
-    animation: 'gentleFloat 5s ease-in-out infinite 1s'
-  }}>🍃</div>
-
-  <h3 style={{
-    textAlign: 'center',
-    fontFamily: "'Kalam', cursive",
-    color: '#27ae60',
-    fontSize: '1.5rem',
-    marginBottom: '25px',
-    fontWeight: 'bold',
-    textShadow: '2px 2px 4px rgba(255,255,255,0.8)'
-  }}>
-    🌿 Our Ghibli-Inspired Journey 🌿
-  </h3>
-
-  {/* Photo Container */}
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '20px'
-  }}>
-    <div style={{
-      position: 'relative',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      border: '4px solid transparent',
-      background: 'linear-gradient(45deg, #98FB98, #87CEEB, #DDA0DD, #98FB98)',
-      backgroundSize: '400% 400%',
-      animation: 'borderFlow 6s ease infinite',
-      padding: '4px',
-      maxWidth: '350px',
-      width: '100%'
-    }}>
-      <div style={{
-        position: 'relative',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        background: 'white'
-      }}>
-        <img 
-          src="/photos/ghibli.png"
-          alt="Rhitam & Rojika - Ghibli Style"
-          style={{
-            width: '100%',
-            height: '250px',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
-          }}
-        />
-        
-        {/* Photo overlay effects */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(45deg, transparent 30%, rgba(152,251,152,0.1) 50%, transparent 70%)',
-          animation: 'photoShimmer 8s ease-in-out infinite'
-        }}></div>
-        
-        {/* Floating sparkles over photo */}
-        <div style={{
-          position: 'absolute',
-          top: '15px', left: '15px',
-          fontSize: '1.2rem',
-          animation: 'twinkle 2s ease-in-out infinite',
-          color: 'rgba(255,255,255,0.9)',
-          filter: 'drop-shadow(0 0 3px rgba(152,251,152,0.8))'
-        }}>✨</div>
-        
-        <div style={{
-          position: 'absolute',
-          top: '20px', right: '20px',
-          fontSize: '1rem',
-          animation: 'twinkle 2.5s ease-in-out infinite 1s',
-          color: 'rgba(255,255,255,0.9)',
-          filter: 'drop-shadow(0 0 3px rgba(135,206,235,0.8))'
-        }}>🌟</div>
-        
-        <div style={{
-          position: 'absolute',
-          bottom: '15px', left: '20px',
-          fontSize: '1.1rem',
-          animation: 'twinkle 3s ease-in-out infinite 0.5s',
-          color: 'rgba(255,255,255,0.9)',
-          filter: 'drop-shadow(0 0 3px rgba(221,160,221,0.8))'
-        }}>💫</div>
-      </div>
-    </div>
-  </div>
-
-  {/* Photo caption */}
-  <div style={{
-    textAlign: 'center',
-    background: 'rgba(255,255,255,0.9)',
-    borderRadius: '15px',
-    padding: '15px',
-    margin: '15px 20px 0 20px',
-    boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
-    border: '2px solid rgba(152,251,152,0.3)'
-  }}>
-    <p style={{
-      color: '#2c3e50',
-      fontFamily: "'Kalam', cursive",
-      fontSize: '1rem',
-      fontStyle: 'italic',
-      margin: 0
-    }}>
-      "In a world of endless green meadows and gentle breezes, 
-      where every moment feels like a scene from our favorite Ghibli film..."
-    </p>
-    
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      gap: '10px',
-      marginTop: '10px',
-      fontSize: '1.2rem'
-    }}>
-      <span style={{ animation: 'gentleFloat 3s ease-in-out infinite' }}>🌸</span>
-      <span style={{ animation: 'gentleFloat 3s ease-in-out infinite 0.5s' }}>💕</span>
-      <span style={{ animation: 'gentleFloat 3s ease-in-out infinite 1s' }}>🌸</span>
-    </div>
-  </div>
-</div>
-          {/* Enchanted Story Scroll */}
+          {/* Ghibli Photo Gallery */}
           <div style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,248,255,0.9) 100%)',
-            border: '3px solid #98FB98',
+            margin: '35px 0',
+            background: 'linear-gradient(135deg, rgba(152,251,152,0.1) 0%, rgba(135,206,235,0.1) 50%, rgba(240,248,255,0.2) 100%)',
             borderRadius: '25px',
-            padding: '30px',
-            margin: '25px 0',
+            padding: '25px',
+            border: '3px solid rgba(152,251,152,0.3)',
             position: 'relative',
-            boxShadow: '0 10px 30px rgba(152,251,152,0.3), inset 0 1px 0 rgba(255,255,255,0.8)',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            boxShadow: '0 10px 30px rgba(152,251,152,0.2)'
           }}>
-            {/* Parchment texture */}
-            <div style={{
-              position: 'absolute',
-              top: 0, left: 0, right: 0, bottom: 0,
-              backgroundImage: `
-                radial-gradient(circle at 25% 25%, rgba(152,251,152,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(135,206,235,0.1) 0%, transparent 50%)
-              `,
-              animation: 'parchmentShimmer 8s ease-in-out infinite'
-            }}></div>
-
-            {/* Corner decorations */}
             <div style={{
               position: 'absolute',
               top: '10px', left: '10px',
-              fontSize: '2rem',
-              animation: 'twinkle 3s ease-in-out infinite'
-            }}>🌟</div>
+              fontSize: '1.5rem',
+              animation: 'gentleFloat 4s ease-in-out infinite'
+            }}>🌸</div>
             
             <div style={{
               position: 'absolute',
-              top: '10px', right: '10px',
-              fontSize: '2rem',
-              animation: 'twinkle 3s ease-in-out infinite 1s'
-            }}>🌟</div>
-            
-            <div style={{
-              position: 'absolute',
-              bottom: '10px', left: '10px',
-              fontSize: '2rem',
-              animation: 'twinkle 3s ease-in-out infinite 2s'
-            }}>🌟</div>
-            
-            <div style={{
-              position: 'absolute',
-              bottom: '10px', right: '10px',
-              fontSize: '2rem',
-              animation: 'twinkle 3s ease-in-out infinite 0.5s'
-            }}>🌟</div>
+              top: '15px', right: '15px',
+              fontSize: '1.3rem',
+              animation: 'gentleFloat 5s ease-in-out infinite 1s'
+            }}>🍃</div>
 
-            <p style={{
-              color: '#2c3e50',
-              fontSize: '1.15rem',
-              lineHeight: '1.8',
+            <h3 style={{
               textAlign: 'center',
-              fontFamily: "'Kalam', cursive",
-              textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-              position: 'relative',
-              zIndex: 1,
-              margin: '20px 0'
+              fontFamily: "'Amatic SC', cursive",
+              color: '#27ae60',
+              fontSize: '2.5rem',
+              marginBottom: '25px',
+              fontWeight: 'bold',
+              textShadow: '2px 2px 4px rgba(255,255,255,0.8)'
             }}>
-              In a world where <strong style={{ color: '#27ae60' }}>ancient forest spirits</strong> whisper 
-              secrets to the wind, where <strong style={{ color: '#8e44ad' }}>young witches deliver dreams</strong> on 
-              broomsticks, and <strong style={{ color: '#e91e63' }}>celestial princesses</strong> dance among 
-              the stars...
-              <br /><br />
-              <span style={{
-                fontSize: '1.3rem',
-                background: 'linear-gradient(45deg, #27ae60, #3498db, #e91e63)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 'bold',
-                display: 'block',
-                margin: '15px 0'
+              🌿 Our Ghibli-Inspired Journey 🌿
+            </h3>
+
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: '20px'
+            }}>
+              <div style={{
+                position: 'relative',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                border: '4px solid transparent',
+                background: 'linear-gradient(45deg, #98FB98, #87CEEB, #DDA0DD, #98FB98)',
+                backgroundSize: '400% 400%',
+                animation: 'borderFlow 6s ease infinite',
+                padding: '4px',
+                maxWidth: '350px',
+                width: '100%'
               }}>
-                Two souls found their eternal magic ✨
-              </span>
-              <br />
-              <em style={{ color: '#7f8c8d' }}>
-                Come witness the beginning of our greatest adventure, 
-                where every moment will be painted with the colors of pure joy!
-              </em>
-            </p>
+                <div style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  background: 'white'
+                }}>
+                  <img 
+                    src="/photos/ghibli.png"
+                    alt="Rhitam & Rojika - Ghibli Style"
+                    style={{
+                      width: '100%',
+                      height: '250px',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
+                    }}
+                  />
+                  
+                  <div style={{
+                    position: 'absolute',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    background: 'linear-gradient(45deg, transparent 30%, rgba(152,251,152,0.1) 50%, transparent 70%)',
+                    animation: 'photoShimmer 8s ease-in-out infinite'
+                  }}></div>
+                  
+                  <div style={{
+                    position: 'absolute',
+                    top: '15px', left: '15px',
+                    fontSize: '1.2rem',
+                    animation: 'twinkle 2s ease-in-out infinite',
+                    color: 'rgba(255,255,255,0.9)',
+                    filter: 'drop-shadow(0 0 3px rgba(152,251,152,0.8))'
+                  }}>✨</div>
+                  
+                  <div style={{
+                    position: 'absolute',
+                    top: '20px', right: '20px',
+                    fontSize: '1rem',
+                    animation: 'twinkle 2.5s ease-in-out infinite 1s',
+                    color: 'rgba(255,255,255,0.9)',
+                    filter: 'drop-shadow(0 0 3px rgba(135,206,235,0.8))'
+                  }}>🌟</div>
+                  
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '15px', left: '20px',
+                    fontSize: '1.1rem',
+                    animation: 'twinkle 3s ease-in-out infinite 0.5s',
+                    color: 'rgba(255,255,255,0.9)',
+                    filter: 'drop-shadow(0 0 3px rgba(221,160,221,0.8))'
+                  }}>💫</div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          {/* Magical Timeline */}
+          {/* Magical Timeline with SVGs */}
           <div style={{ margin: '35px 0' }}>
             <h3 style={{
               textAlign: 'center',
-              fontFamily: "'Kalam', cursive",
-              fontSize: '1.6rem',
+              fontFamily: "'Amatic SC', cursive",
+              fontSize: '2.5rem',
               color: '#27ae60',
               marginBottom: '30px',
               textShadow: '2px 2px 4px rgba(255,255,255,0.8)',
@@ -405,7 +287,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               }}>🍃</span>
             </h3>
             
-            {/* Chapter 1 - Enhanced */}
+            {/* Chapter 1 with SVG */}
             <div style={{
               background: 'linear-gradient(135deg, rgba(39,174,96,0.15) 0%, rgba(152,251,152,0.1) 100%)',
               border: '3px solid #27ae60',
@@ -429,15 +311,19 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                 gap: '20px'
               }}>
                 <div style={{
-                  fontSize: '4rem',
+                  flexShrink: 0,
+                  width: '6rem',
+                  height: '6rem',
                   animation: 'treeSway 4s ease-in-out infinite'
-                }}>🏛️</div>
+                }}>
+                  <img src="/icons/shrine.svg" alt="Shrine" style={{width: '100%', height: '100%'}} />
+                </div>
                 
                 <div style={{ flex: 1 }}>
                   <h4 style={{
                     color: '#27ae60',
-                    fontFamily: "'Kalam', cursive",
-                    fontSize: '1.4rem',
+                    fontFamily: "'Amatic SC', cursive",
+                    fontSize: '2rem',
                     marginBottom: '10px',
                     fontWeight: 'bold'
                   }}>🌸 The Sacred Ceremony 🌸</h4>
@@ -445,7 +331,8 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   <p style={{
                     color: '#2c3e50',
                     fontWeight: 'bold',
-                    fontSize: '1.1rem',
+                    fontSize: '1.2rem',
+                    fontFamily: "'Amatic SC', cursive",
                     margin: '5px 0'
                   }}>
                     <span style={{ color: '#27ae60' }}>When the magic begins:</span> 25th January, 2026 at 7pm
@@ -453,10 +340,9 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   
                   <p style={{
                     color: '#7f8c8d',
-                    fontStyle: 'italic',
-                    fontSize: '1rem',
+                    fontSize: '1.5rem',
                     marginTop: '10px',
-                    fontFamily: "'Kalam', cursive"
+                    fontFamily: "'Amatic SC', cursive"
                   }}>
                     "Where ancient vows echo through the sacred grove..."
                   </p>
@@ -464,7 +350,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               </div>
             </div>
             
-            {/* Chapter 2 - Enhanced */}
+            {/* Chapter 2 with SVGs */}
             <div style={{
               background: 'linear-gradient(135deg, rgba(142,68,173,0.15) 0%, rgba(221,160,221,0.1) 100%)',
               border: '3px solid #8e44ad',
@@ -480,7 +366,9 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                 top: '-10px', right: '-10px',
                 fontSize: '2rem',
                 animation: 'sparkle 2s ease-in-out infinite 0.5s'
-              }}>🧙‍♀️</div>
+              }}>
+                <img src="/icons/witch_kiki.svg" alt="Witch icon" style={{width: '32px', height: '32px'}} />
+              </div>
               
               <div style={{
                 display: 'flex',
@@ -488,15 +376,19 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                 gap: '20px'
               }}>
                 <div style={{
-                  fontSize: '4rem',
+                  flexShrink: 0,
+                  width: '6rem',
+                  height: '6rem',
                   animation: 'broomFly 3s ease-in-out infinite'
-                }}>🏰</div>
+                }}>
+                  <img src="/icons/castle.svg" alt="Castle" style={{width: '100%', height: '100%'}} />
+                </div>
                 
                 <div style={{ flex: 1 }}>
                   <h4 style={{
                     color: '#8e44ad',
-                    fontFamily: "'Kalam', cursive",
-                    fontSize: '1.4rem',
+                    fontFamily: "'Amatic SC', cursive",
+                    fontSize: '2rem',
                     marginBottom: '10px',
                     fontWeight: 'bold'
                   }}>✨ The Magical Realm ✨</h4>
@@ -504,13 +396,14 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   <p style={{
                     color: '#2c3e50',
                     fontWeight: 'bold',
-                    fontSize: '1.1rem',
+                    fontSize: '1.2rem',
+                    fontFamily: "'Amatic SC', cursive",
                     margin: '5px 0'
                   }}>
                     <span style={{ color: '#8e44ad' }}>Enchanted Location:</span> Guwahati, Assam
                   </p>
                   
-                  <p style={{ color: '#2c3e50', fontSize: '1rem', margin: '5px 0' }}>
+                  <p style={{ color: '#2c3e50', fontSize: '1.2rem', fontFamily: "'Amatic SC', cursive", margin: '5px 0' }}>
                     <span style={{ color: '#8e44ad', fontWeight: 'bold' }}>Portal Address:</span>
                     <a href="https://maps.app.goo.gl/hQZGJ8mh1VZRqJob7" 
                         target="_blank" 
@@ -528,10 +421,9 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   
                   <p style={{
                     color: '#7f8c8d',
-                    fontStyle: 'italic',
-                    fontSize: '1rem',
+                    fontSize: '1.5rem',
                     marginTop: '10px',
-                    fontFamily: "'Kalam', cursive"
+                    fontFamily: "'Amatic SC', cursive"
                   }}>
                     "Where our new life takes flight on wings of love..."
                   </p>
@@ -539,7 +431,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               </div>
             </div>
             
-            {/* Chapter 3 - Enhanced */}
+            {/* Chapter 3 with SVG */}
             <div style={{
               background: 'linear-gradient(135deg, rgba(233,30,99,0.15) 0%, rgba(255,182,193,0.1) 100%)',
               border: '3px solid #e91e63',
@@ -563,15 +455,19 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                 gap: '20px'
               }}>
                 <div style={{
-                  fontSize: '4rem',
+                  flexShrink: 0,
+                  width: '6rem',
+                  height: '6rem',
                   animation: 'petalDance 4s ease-in-out infinite'
-                }}>🎭</div>
+                }}>
+                  <img src="/icons/celebration.svg" alt="Celebration" style={{width: '100%', height: '100%'}} />
+                </div>
                 
                 <div style={{ flex: 1 }}>
                   <h4 style={{
                     color: '#e91e63',
-                    fontFamily: "'Kalam', cursive",
-                    fontSize: '1.4rem',
+                    fontFamily: "'Amatic SC', cursive",
+                    fontSize: '2rem',
                     marginBottom: '10px',
                     fontWeight: 'bold'
                   }}>💫 The Grand Celebration 💫</h4>
@@ -579,7 +475,8 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   <p style={{
                     color: '#2c3e50',
                     fontWeight: 'bold',
-                    fontSize: '1.1rem',
+                    fontSize: '1.2rem',
+                    fontFamily: "'Amatic SC', cursive",
                     margin: '5px 0'
                   }}>
                     <span style={{ color: '#e91e63' }}>Royal Festivities:</span> Dinner, Dancing & Dreams
@@ -587,10 +484,9 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                   
                   <p style={{
                     color: '#7f8c8d',
-                    fontStyle: 'italic',
-                    fontSize: '1rem',
+                    fontSize: '1.5rem',
                     marginTop: '10px',
-                    fontFamily: "'Kalam', cursive"
+                    fontFamily: "'Amatic SC', cursive"
                   }}>
                     "A celebration as beautiful as Princess Kaguya's celestial court..."
                   </p>
@@ -599,7 +495,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             </div>
           </div>
           
-          {/* Bus Stop of Love */}
+          {/* Bus Stop of Love with SVGs */}
           <div style={{
             background: 'linear-gradient(135deg, rgba(135,206,235,0.3) 0%, rgba(152,251,152,0.2) 100%)',
             border: '3px dashed #87CEEB',
@@ -616,19 +512,23 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               top: '-15px', left: '20px',
               fontSize: '3rem',
               animation: 'umbrellaSwing 4s ease-in-out infinite'
-            }}>🌂</div>
+            }}>
+              <img src="/icons/umbrella.svg" alt="Umbrella" style={{width: '48px', height: '48px'}} />
+            </div>
             
             <div style={{
               position: 'absolute',
               top: '-15px', right: '20px',
               fontSize: '2.5rem',
               animation: 'catbusDrive 8s ease-in-out infinite'
-            }}>🚌</div>
+            }}>
+              <img src="/icons/catbus.svg" alt="Catbus" style={{width: '40px', height: '40px'}} />
+            </div>
             
             <p style={{
               color: '#27ae60',
-              fontFamily: "'Kalam', cursive",
-              fontSize: '1.4rem',
+              fontFamily: "'Amatic SC', cursive",
+              fontSize: '2rem',
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(255,255,255,0.8)',
               margin: '15px 0'
@@ -638,8 +538,8 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             
             <p style={{
               color: '#7f8c8d',
-              fontStyle: 'italic',
-              fontSize: '1rem',
+              fontSize: '1.5rem',
+              fontFamily: "'Amatic SC', cursive",
               marginTop: '10px'
             }}>
               Where every moment becomes a cherished memory...
@@ -658,7 +558,6 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             overflow: 'hidden',
             backgroundClip: 'padding-box'
           }}>
-            {/* Magical border */}
             <div style={{
               position: 'absolute',
               top: 0, left: 0, right: 0, bottom: 0,
@@ -669,7 +568,6 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               zIndex: -1
             }}></div>
 
-            {/* Floating soot sprites */}
             <div style={{
               position: 'absolute',
               top: '15px', left: '15%',
@@ -698,10 +596,10 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               animation: 'sootFloat 6s ease-in-out infinite 1s'
             }}>●</div>
 
-            <h3 style={{
+            <            h3 style={{
               color: '#27ae60',
-              fontFamily: "'Kalam', cursive",
-              fontSize: '1.6rem',
+              fontFamily: "'Amatic SC', cursive",
+              fontSize: '2.5rem',
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(255,255,255,0.8)',
               margin: '20px 0',
@@ -713,9 +611,8 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             
             <p style={{
               color: '#7f8c8d',
-              fontFamily: "'Kalam', cursive",
-              fontSize: '1rem',
-              fontStyle: 'italic',
+              fontFamily: "'Amatic SC', cursive",
+              fontSize: '1.5rem',
               marginBottom: '25px',
               position: 'relative',
               zIndex: 1
@@ -737,65 +634,193 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
                 style={{
                   background: 'linear-gradient(45deg, #98FB98, #87CEEB, #DDA0DD)',
                   color: '#2c3e50',
-                  fontFamily: "'Kalam', cursive",
-                  fontSize: '1.2rem',
-                 fontWeight: 'bold',
-                 padding: '18px 35px',
-                 border: '3px solid rgba(255,255,255,0.9)',
-                 borderRadius: '30px',
-                 boxShadow: '0 8px 25px rgba(152,251,152,0.4), inset 0 2px 0 rgba(255,255,255,0.8)',
-                 maxWidth: '320px',
-                 width: '100%',
-                 position: 'relative',
-                 overflow: 'hidden',
-                 transition: 'all 0.3s ease'
-               }}
-               onMouseEnter={(e) => {
-                 e.target.style.transform = 'translateY(-3px) scale(1.02)';
-                 e.target.style.boxShadow = '0 12px 35px rgba(152,251,152,0.6)';
-               }}
-               onMouseLeave={(e) => {
-                 e.target.style.transform = 'translateY(0) scale(1)';
-                 e.target.style.boxShadow = '0 8px 25px rgba(152,251,152,0.4)';
-               }}
-             >
-               🌸 Yes! I'll join your magical story! 🌸
-             </button>
-             
-             <button 
-               className="special-effects-btn" 
-               onClick={(e) => onSpecialEffect('ghibli', e)} 
-               style={{
-                 background: 'linear-gradient(45deg, #DDA0DD, #F0E68C, #FFB6C1)',
-                 color: '#2c3e50',
-                 fontFamily: "'Kalam', cursive",
-                 fontSize: '1.2rem',
-                 fontWeight: 'bold',
-                 padding: '18px 35px',
-                 border: '3px solid rgba(255,255,255,0.9)',
-                 borderRadius: '30px',
-                 boxShadow: '0 8px 25px rgba(221,160,221,0.4), inset 0 2px 0 rgba(255,255,255,0.8)',
-                 maxWidth: '320px',
-                 width: '100%',
-                 transition: 'all 0.3s ease'
-               }}
-               onMouseEnter={(e) => {
-                 e.target.style.transform = 'translateY(-3px) scale(1.02)';
-                 e.target.style.boxShadow = '0 12px 35px rgba(221,160,221,0.6)';
-               }}
-               onMouseLeave={(e) => {
-                 e.target.style.transform = 'translateY(0) scale(1)';
-                 e.target.style.boxShadow = '0 8px 25px rgba(221,160,221,0.4)';
-               }}
-             >
-               📱 Send via Howl's Moving Castle 🏰
-             </button>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- );
+                  fontFamily: "'Amatic SC', cursive",
+                  fontSize: '1.8rem',
+                  fontWeight: 'bold',
+                  padding: '18px 35px',
+                  border: '3px solid rgba(255,255,255,0.9)',
+                  borderRadius: '30px',
+                  boxShadow: '0 8px 25px rgba(152,251,152,0.4), inset 0 2px 0 rgba(255,255,255,0.8)',
+                  maxWidth: '320px',
+                  width: '100%',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-3px) scale(1.02)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(152,251,152,0.6)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0) scale(1)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(152,251,152,0.4)';
+                }}
+              >
+                🌸 Yes! I'll join your magical story! 🌸
+              </button>
+              
+              <button 
+                className="special-effects-btn" 
+                onClick={(e) => onSpecialEffect('ghibli', e)} 
+                style={{
+                  background: 'linear-gradient(45deg, #DDA0DD, #F0E68C, #FFB6C1)',
+                  color: '#2c3e50',
+                  fontFamily: "'Amatic SC', cursive",
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  padding: '18px 35px',
+                  border: '3px solid rgba(255,255,255,0.9)',
+                  borderRadius: '30px',
+                  boxShadow: '0 8px 25px rgba(221,160,221,0.4), inset 0 2px 0 rgba(255,255,255,0.8)',
+                  maxWidth: '320px',
+                  width: '100%',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-3px) scale(1.02)';
+                  e.target.style.boxShadow = '0 12px 35px rgba(221,160,221,0.6)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0) scale(1)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(221,160,221,0.4)';
+                }}
+              >
+                <img 
+                  src="/icons/witch_kiki.svg" 
+                  alt="Witch icon" 
+                  style={{ 
+                    width: '30px', 
+                    height: '30px'
+                  }}
+                />
+                <span>Send via Kiki's Delivery Service</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes sootBounce {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        
+        @keyframes magicPulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        @keyframes borderFlow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes gentleFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.5; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes photoShimmer {
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.3; }
+        }
+        
+        @keyframes parchmentShimmer {
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.3; }
+        }
+        
+        @keyframes leafDance {
+          0%, 100% { transform: rotate(-5deg) translateY(0px); }
+          50% { transform: rotate(5deg) translateY(-5px); }
+        }
+        
+        @keyframes sparkle {
+          0%, 100% { opacity: 0.7; transform: rotate(0deg) scale(1); }
+          25% { opacity: 1; transform: rotate(90deg) scale(1.1); }
+          50% { opacity: 0.8; transform: rotate(180deg) scale(1.2); }
+          75% { opacity: 1; transform: rotate(270deg) scale(1.1); }
+        }
+        
+        @keyframes treeSway {
+          0%, 100% { transform: rotate(-2deg); }
+          50% { transform: rotate(2deg); }
+        }
+        
+        @keyframes broomFly {
+          0%, 100% { transform: translateY(0px) rotate(-1deg); }
+          50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        
+        @keyframes petalDance {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-5px) rotate(5deg); }
+          66% { transform: translateY(-3px) rotate(-3deg); }
+        }
+        
+        @keyframes umbrellaSwing {
+          0%, 100% { transform: rotate(-3deg); }
+          50% { transform: rotate(3deg); }
+        }
+        
+        @keyframes catbusDrive {
+          0% { transform: translateX(-20px); }
+          50% { transform: translateX(20px); }
+          100% { transform: translateX(-20px); }
+        }
+        
+        @keyframes sootFloat {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+          50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+        }
+        
+        @keyframes gentleSway {
+          0%, 100% { transform: rotate(-1deg); }
+          50% { transform: rotate(1deg); }
+        }
+        
+        @keyframes gentleBounce {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-5px); }
+        }
+        
+        .petal {
+          position: absolute;
+          animation: petalFall linear infinite;
+        }
+        
+        @keyframes petalFall {
+          0% {
+            transform: translateY(-100vh) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default GhibliCard;

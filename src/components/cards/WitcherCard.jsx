@@ -69,253 +69,142 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
         </div>
 
         <div style={{ padding: '25px' }}>
+
           {/* Gwent Wedding Cards Section */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(20, 30, 20, 0.9), rgba(40, 50, 30, 0.8))',
-            border: '3px solid #8B4513',
-            borderRadius: '12px',
-            padding: '25px',
-            margin: '20px 0',
-            boxShadow: '0 8px 25px rgba(0,0,0,0.5)',
-            position: 'relative'
-          }}>
-            {/* Gwent Header */}
-            <div style={{
-              textAlign: 'center',
-              marginBottom: '20px',
-              position: 'relative'
-            }}>
-              <h3 style={{
-                color: '#D4AF37',
-                fontFamily: "'Cinzel', serif",
-                fontSize: '1.4rem',
-                marginBottom: '10px',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-                letterSpacing: '1px'
-              }}>
-                🃏 GWENT: WEDDING EDITION 🃏
-              </h3>
-              <div style={{
-                height: '2px',
-                background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)',
-                margin: '10px auto',
-                width: '60%'
-              }}></div>
-            </div>
+<div style={{
+  backgroundImage: 'linear-gradient(rgba(25, 15, 10, 0.4), rgba(25, 15, 10, 0.4)), url("/textures/gwent_witcher.jpg")',
+  backgroundSize: '120%',
+  backgroundPosition: 'center 20%',
+  backgroundBlendMode: 'multiply',
 
-            {/* Gwent Board */}
-            <div style={{
-              background: 'rgba(139, 69, 19, 0.2)',
-              borderRadius: '10px',
-              padding: '20px',
-              border: '2px solid #8B4513'
-            }}>
-              {/* Cards Row */}
-              <div style={{
-                display: 'flex',
-                gap: '10px',
-                justifyContent: 'center',
-                marginBottom: '20px',
-                flexWrap: 'wrap'
-              }}>
-                {/* Rhitam Hero Card */}
-                <div style={{
-                  background: 'linear-gradient(135deg, #2F1B14, #4A3429)',
-                  border: '3px solid #D4AF37',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  width: '140px',
-                  textAlign: 'center',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.6)',
-                  position: 'relative',
-                  transform: 'rotate(-2deg)'
-                }}>
-                  {/* Power Value */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '8px',
-                    left: '8px',
-                    background: '#8B0000',
-                    color: '#FFF',
-                    borderRadius: '50%',
-                    width: '28px',
-                    height: '28px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1rem',
-                    fontWeight: 'bold',
-                    border: '2px solid #FFD700'
-                  }}>∞</div>
-                  
-                  {/* Card Type Badge */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '8px',
-                    right: '8px',
-                    background: '#D4AF37',
-                    color: '#000',
-                    borderRadius: '4px',
-                    padding: '2px 6px',
-                    fontSize: '0.6rem',
-                    fontWeight: 'bold'
-                  }}>HERO</div>
-                  
-                  <img src ="/photos/rhitam_witcher.png" alt="Rhitam Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
-                  
-                  <div style={{
-                    color: '#D4AF37',
-                    fontSize: '1rem',
-                    fontFamily: "'Cinzel', serif",
-                    fontWeight: 'bold',
-                    marginBottom: '5px'
-                  }}>RHITAM</div>
-                  
-                  <div style={{
-                    color: '#C0C0C0',
-                    fontSize: '0.7rem',
-                    fontStyle: 'italic',
-                    marginBottom: '8px'
-                  }}>The Destined Groom</div>
-                  
-                  <div style={{
-                    background: 'rgba(212, 175, 55, 0.2)',
-                    borderRadius: '4px',
-                    padding: '4px',
-                    fontSize: '0.6rem',
-                    color: '#FFD700'
-                  }}>
-                    <strong>Ability:</strong> Eternal Bond
-                  </div>
-                </div>
+  // 2. Adopt styles from the old inner container and main section wrapper
+  border: '3px solid #8B4513',
+  borderRadius: '12px',
+  padding: '55px',
+  margin: '50px 0',
+  boxShadow: '0 8px 25px rgba(0,0,0,0.5)',
+  position: 'relative'
+}}>
 
-                {/* Love Special Card */}
-                <div style={{
-                  background: 'linear-gradient(135deg, #4A1A1A, #6B2C2C)',
-                  border: '3px solid #FF69B4',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  width: '100px',
-                  textAlign: 'center',
-                  boxShadow: '0 5px 15px rgba(255,105,180,0.4)',
-                  alignSelf: 'center',
-                  animation: 'glow 2s ease-in-out infinite alternate'
-                }}>
-                  <div style={{ fontSize: '3.5rem', margin: '10px 0' }}>💕</div>
-                  <div style={{
-                    color: '#FF69B4',
-                    fontSize: '0.9rem',
-                    fontFamily: "'Cinzel', serif",
-                    fontWeight: 'bold'
-                  }}>LOVE</div>
-                  <div style={{
-                    color: '#FFB6C1',
-                    fontSize: '0.6rem',
-                    fontStyle: 'italic'
-                  }}>Special Card</div>
-                </div>
+  {/* Gwent Header */}
+  <div style={{
+    textAlign: 'center',
+    marginBottom: '20px',
+    position: 'relative'
+  }}>
+    <h3 style={{
+      color: '#D4AF37',
+      fontFamily: "'MedievalSharp', cursive", // Using the better Witcher font
+      fontSize: '1.6rem', // Slightly larger for impact
+      marginBottom: '10px',
+      textShadow: '2px 2px 4px rgba(0,0,0,0.9)',
+      letterSpacing: '1px'
+    }}>
+      🃏 GWENT: WEDDING EDITION 🃏
+    </h3>
+    <div style={{
+      height: '2px',
+      background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)',
+      margin: '10px auto',
+      width: '60%'
+    }}></div>
+  </div>
 
-                {/* Rojika Hero Card */}
-                <div style={{
-                  background: 'linear-gradient(135deg, #2F1B14, #4A3429)',
-                  border: '3px solid #D4AF37',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  width: '140px',
-                  textAlign: 'center',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.6)',
-                  position: 'relative',
-                  transform: 'rotate(2deg)'
-                }}>
-                  {/* Power Value */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '8px',
-                    left: '8px',
-                    background: '#8B0000',
-                    color: '#FFF',
-                    borderRadius: '50%',
-                    width: '28px',
-                    height: '28px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1rem',
-                    fontWeight: 'bold',
-                    border: '2px solid #FFD700'
-                  }}>∞</div>
-                  
-                  {/* Card Type Badge */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '8px',
-                    right: '8px',
-                    background: '#D4AF37',
-                    color: '#000',
-                    borderRadius: '4px',
-                    padding: '2px 6px',
-                    fontSize: '0.6rem',
-                    fontWeight: 'bold'
-                  }}>HERO</div>
-                  
-                  <img src="/photos/rojika_witcher.png" alt="Rojika Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
-                  
-                  <div style={{
-                    color: '#D4AF37',
-                    fontSize: '1rem',
-                    fontFamily: "'Cinzel', serif",
-                    fontWeight: 'bold',
-                    marginBottom: '5px'
-                  }}>ROJIKA</div>
-                  
-                  <div style={{
-                    color: '#C0C0C0',
-                    fontSize: '0.7rem',
-                    fontStyle: 'italic',
-                    marginBottom: '8px'
-                  }}>The Destined Bride</div>
-                  
-                  <div style={{
-                    background: 'rgba(212, 175, 55, 0.2)',
-                    borderRadius: '4px',
-                    padding: '4px',
-                    fontSize: '0.6rem',
-                    color: '#FFD700'
-                  }}>
-                    <strong>Ability:</strong> Eternal Bond
-                  </div>
-                </div>
-              </div>
+  {/* Cards Row (No longer needs a separate "Gwent Board" wrapper) */}
+  <div style={{
+    display: 'flex',
+    gap: '10px',
+    justifyContent: 'center',
+    marginBottom: '20px',
+    flexWrap: 'wrap'
+  }}>
+    {/* Rhitam Hero Card (Content is unchanged) */}
+    <div style={{
+      background: 'linear-gradient(135deg, #2F1B14, #4A3429)',
+      border: '3px solid #D4AF37',
+      borderRadius: '10px',
+      padding: '15px',
+      width: '140px',
+      textAlign: 'center',
+      boxShadow: '0 5px 15px rgba(0,0,0,0.6)',
+      position: 'relative',
+      transform: 'rotate(-2deg)'
+    }}>
+      <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#8B0000', color: '#FFF', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 'bold', border: '2px solid #FFD700' }}>∞</div>
+      <div style={{ position: 'absolute', top: '8px', right: '8px', background: '#D4AF37', color: '#000', borderRadius: '4px', padding: '2px 6px', fontSize: '0.6rem', fontWeight: 'bold' }}>HERO</div>
+      <img src="/photos/rhitam_witcher.png" alt="Rhitam Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
+      <div style={{ color: '#D4AF37', fontSize: '1rem', fontFamily: "'MedievalSharp', cursive", fontWeight: 'bold', marginBottom: '5px' }}>RHITAM</div>
+      <div style={{ color: '#C0C0C0', fontSize: '0.7rem', fontStyle: 'italic', marginBottom: '8px' }}>The Destined Groom</div>
+      <div style={{ background: 'rgba(212, 175, 55, 0.2)', borderRadius: '4px', padding: '4px', fontSize: '0.6rem', color: '#FFD700' }}><strong>Ability:</strong> Eternal Bond</div>
+    </div>
 
-              {/* Combo Effect */}
-              <div style={{
-                background: 'linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(255, 105, 180, 0.2))',
-                borderRadius: '8px',
-                padding: '15px',
-                textAlign: 'center',
-                border: '2px solid #D4AF37',
-                boxShadow: 'inset 0 0 20px rgba(212, 175, 55, 0.3)'
-              }}>
-                <div style={{
-                  color: '#D4AF37',
-                  fontSize: '1rem',
-                  fontFamily: "'Cinzel', serif",
-                  fontWeight: 'bold',
-                  marginBottom: '8px'
-                }}>
-                  ⚡ LEGENDARY COMBO ACTIVATED ⚡
-                </div>
-                <div style={{
-                  color: '#E8E8E8',
-                  fontSize: '0.8rem',
-                  fontStyle: 'italic',
-                  lineHeight: '1.4'
-                }}>
-                  "When Rhitam and Rojika are played together, both gain <strong style={{color: '#FFD700'}}>Resilience</strong> and cannot be removed from the board. Their combined power creates an unbreakable bond that transcends all magic."
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Love Special Card (Content is unchanged) */}
+    <div style={{
+      background: 'linear-gradient(135deg, #6b0000, #8B0000)', // Thematic red color
+      border: '3px solid #ff4d4d', // Thematic red color
+      borderRadius: '10px',
+      padding: '15px',
+      width: '100px',
+      textAlign: 'center',
+      boxShadow: '0 5px 15px rgba(139,0,0,0.6)', // Thematic red color
+      alignSelf: 'center',
+      animation: 'glow 2s ease-in-out infinite alternate'
+    }}>
+      <div style={{ fontSize: '3.5rem', margin: '10px 0' }}>💕</div>
+      <div style={{ color: '#ff8080', fontSize: '0.9rem', fontFamily: "'MedievalSharp', cursive", fontWeight: 'bold' }}>LOVE</div>
+      <div style={{ color: '#ffb3b3', fontSize: '0.6rem', fontStyle: 'italic' }}>Special Card</div>
+    </div>
+
+    {/* Rojika Hero Card (Content is unchanged) */}
+    <div style={{
+      background: 'linear-gradient(135deg, #2F1B14, #4A3429)',
+      border: '3px solid #D4AF37',
+      borderRadius: '10px',
+      padding: '15px',
+      width: '140px',
+      textAlign: 'center',
+      boxShadow: '0 5px 15px rgba(0,0,0,0.6)',
+      position: 'relative',
+      transform: 'rotate(2deg)'
+    }}>
+      <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#8B0000', color: '#FFF', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 'bold', border: '2px solid #FFD700' }}>∞</div>
+      <div style={{ position: 'absolute', top: '8px', right: '8px', background: '#D4AF37', color: '#000', borderRadius: '4px', padding: '2px 6px', fontSize: '0.6rem', fontWeight: 'bold' }}>HERO</div>
+      <img src="/photos/rojika_witcher.png" alt="Rojika Hero Card" style={{ width: '100px', height: 'auto', marginBottom: '10px' }} />
+      <div style={{ color: '#D4AF37', fontSize: '1rem', fontFamily: "'MedievalSharp', cursive", fontWeight: 'bold', marginBottom: '5px' }}>ROJIKA</div>
+      <div style={{ color: '#C0C0C0', fontSize: '0.7rem', fontStyle: 'italic', marginBottom: '8px' }}>The Destined Bride</div>
+      <div style={{ background: 'rgba(212, 175, 55, 0.2)', borderRadius: '4px', padding: '4px', fontSize: '0.6rem', color: '#FFD700' }}><strong>Ability:</strong> Eternal Bond</div>
+    </div>
+  </div>
+
+  {/* Combo Effect */}
+  <div style={{
+    background: 'linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(139, 0, 0, 0.2))', // Thematic red color
+    borderRadius: '8px',
+    padding: '15px',
+    textAlign: 'center',
+    border: '2px solid #D4AF37',
+    boxShadow: 'inset 0 0 20px rgba(212, 175, 55, 0.3)'
+  }}>
+    <div style={{
+      color: '#D4AF37',
+      fontSize: '1rem',
+      fontFamily: "'MedievalSharp', cursive",
+      fontWeight: 'bold',
+      marginBottom: '8px'
+    }}>
+      ⚡ LEGENDARY COMBO ACTIVATED ⚡
+    </div>
+    <div style={{
+      color: '#E8E8E8',
+      fontSize: '0.8rem',
+      fontStyle: 'italic',
+      lineHeight: '1.4'
+    }}>
+      "When Rhitam and Rojika are played together, both gain <strong style={{color: '#FFD700'}}>Resilience</strong> and cannot be removed from the board. Their combined power creates an unbreakable bond that transcends all magic."
+    </div>
+  </div>
+
+</div>
 
           {/* Wedding Contract */}
           <div style={{
@@ -330,7 +219,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
             position: 'relative'
           }}>
             <h3 style={{
-              color: '#191505ff',
+              color: '#080000ff',
               fontFamily: "'Cinzel', serif",
               textAlign: 'center',
               marginBottom: '20px',
@@ -412,7 +301,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
           target="_blank" 
           rel="noopener noreferrer"
           style={{ 
-            color: '#D4AF37', 
+            color: '#080000ff', 
             fontFamily: "'Cinzel', serif", 
             fontSize: '0.9rem',
             textDecoration: 'none',
@@ -432,7 +321,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
           }}
           onMouseLeave={(e) => {
             e.target.style.background = 'rgba(212, 175, 55, 0.2)';
-            e.target.style.color = '#D4AF37';
+            e.target.style.color = '#080000ff';
             e.target.style.transform = 'translateY(0)';
             e.target.style.boxShadow = 'none';
           }}
@@ -472,7 +361,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
               </div>
               <div style={{
                 fontSize: '1rem',
-                color: '#C0C0C0',
+                color: '#080000ff',
                 fontStyle: 'italic',
                 letterSpacing: '2px'
               }}>
