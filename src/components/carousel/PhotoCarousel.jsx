@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 const PhotoCarousel = () => {
@@ -34,6 +33,29 @@ const PhotoCarousel = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Navigation functions
+  const goToNext = () => {
+    setCurrentPhoto((prev) => (prev + 1) % photos.length);
+  };
+
+  const goToPrevious = () => {
+    setCurrentPhoto((prev) => (prev - 1 + photos.length) % photos.length);
+  };
+
+  // Handle click/touch on image
+  const handleImageClick = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const imageWidth = rect.width;
+    
+    // If clicked on right half, go next. If left half, go previous
+    if (clickX > imageWidth / 2) {
+      goToNext();
+    } else {
+      goToPrevious();
+    }
+  };
+
   return (
     <div className="hero-carousel">
       <div 
@@ -44,9 +66,44 @@ const PhotoCarousel = () => {
           transform: 'translateZ(0)',
           willChange: 'auto',
           backgroundColor: '#000', // Ensure consistent background
-          overflow: 'hidden'
+          overflow: 'hidden',
+          position: 'relative',
+          cursor: 'pointer' // Show it's clickable
         }}
+        onClick={handleImageClick}
       >
+        {/* Navigation zones (invisible) */}
+        <div 
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '50%',
+            height: '100%',
+            zIndex: 10,
+            cursor: 'w-resize' // Left arrow cursor
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            goToPrevious();
+          }}
+        />
+        <div 
+          style={{
+            position: 'absolute',
+            right: 0,
+            top: 0,
+            width: '50%',
+            height: '100%',
+            zIndex: 10,
+            cursor: 'e-resize' // Right arrow cursor
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            goToNext();
+          }}
+        />
+
         {photos.map((photo, index) => (
           <img
             key={index}
@@ -62,12 +119,51 @@ const PhotoCarousel = () => {
               // Ensure images fill completely
               width: '100%',
               height: '100%',
-              objectFit: 'cover'
+              objectFit: 'cover',
+              userSelect: 'none' // Prevent image selection
             }}
             // Preload next image to prevent flashing
             loading={index <= currentPhoto + 1 ? 'eager' : 'lazy'}
+            draggable={false} // Prevent image dragging
           />
         ))}
+        
+        {/* Optional: Visual indicators for navigation zones */}
+        <div 
+          style={{
+            position: 'absolute',
+            left: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontSize: '2rem',
+            color: 'rgba(255,255,255,0.7)',
+            pointerEvents: 'none',
+            zIndex: 5,
+            opacity: 0,
+            transition: 'opacity 0.3s ease'
+          }}
+          className="nav-indicator-left"
+        >
+          ←
+        </div>
+        <div 
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontSize: '2rem',
+            color: 'rgba(255,255,255,0.7)',
+            pointerEvents: 'none',
+            zIndex: 5,
+            opacity: 0,
+            transition: 'opacity 0.3s ease'
+          }}
+          className="nav-indicator-right"
+        >
+          →
+        </div>
+
         <div className="carousel-overlay">
           <h1>Rhitam & Rojika</h1>
           <p>January 25th, 2026</p>

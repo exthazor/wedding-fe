@@ -277,6 +277,27 @@ const MusicControl = () => (
     }
   };
 
+const sendWhatsAppMessage = (theme) => {
+  const messages = {
+    ghibli: "🌸 I'd love to join your magical wedding adventure! Count me in for Rhitam & Rojika's special day! ✨",
+    witcher: "🐺 I accept your wedding contract! Destiny has brought me to witness Rhitam & Rojika's union! ⚔️",
+    cyberpunk: "🤖 RSVP STATUS: CONFIRMED! Ready to join the resistance at Rhitam & Rojika's wedding! 💖",
+    pixel: "🎮 PLAYER 2 WANTS TO JOIN! Ready for Rhitam & Rojika's epic wedding quest! 👾"
+  };
+  
+  const phoneNumber = "7019679084";
+  const message = encodeURIComponent(messages[theme]);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  
+  // Trigger special effects first
+  triggerSpecialEffect(theme, event);
+  
+  // Then open WhatsApp
+  setTimeout(() => {
+    window.open(whatsappUrl, '_blank');
+  }, 1000);
+};
+
   // Load Google Fonts
   useEffect(() => {
     const link = document.createElement('link');
