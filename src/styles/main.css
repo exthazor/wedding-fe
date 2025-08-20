@@ -149,7 +149,7 @@ body {
         
         /* Card container */
         .card-wrapper {
-            max-width: 500px;
+            max-width: 700px;
             margin: 0 auto 30px;
             perspective: 1000px;
         }
@@ -177,7 +177,7 @@ body {
         }
         
         .card:hover {
-            transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
+            transform: rotateX(2deg) rotateY(-2deg) scale(1.01);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
         
@@ -871,13 +871,191 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero-carousel {
-    height: 50vh;
+  .carousel-overlay {
+    bottom: 15px;
+    padding: 0 20px;
+  }
+  
+  .carousel-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  
+  .carousel-overlay p {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-carousel {
-    height: 40vh;
+  .carousel-overlay {
+    bottom: 20px;
   }
+  
+  .carousel-overlay h1 {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyberpunk-card .couple-names {
+    font-size: 0.9rem !important;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+}
+
+@keyframes cloudDrift {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+@keyframes rainbowGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes textShimmer {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes magicPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.1); filter: brightness(1.2); }
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes orbitSlow {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes textGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 10px currentColor); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1.2); }
+  75% { transform: scale(1.1); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes parchmentShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes leafDance {
+  0%, 100% { transform: rotate(-5deg) translateY(0px); }
+  50% { transform: rotate(5deg) translateY(-5px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.7; transform: rotate(0deg) scale(1); }
+  50% { opacity: 1; transform: rotate(180deg) scale(1.2); }
+}
+
+@keyframes treeSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes broomFly {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes petalDance {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-5px) rotate(5deg); }
+  66% { transform: translateY(-3px) rotate(-3deg); }
+}
+
+@keyframes sootFloat {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+@keyframes kodamaGlow {
+  0%, 100% { opacity: 0.7; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.3) drop-shadow(0 0 10px white); }
+}
+
+@keyframes gentleSway {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+@keyframes spiritFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-15px) rotate(180deg); opacity: 1; }
+}
+
+@keyframes heartMagic {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px #ff69b4); }
+  25% { transform: scale(1.2); filter: drop-shadow(0 0 15px #ff69b4); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 20px #ff1493); }
+  75% { transform: scale(1.15); filter: drop-shadow(0 0 15px #ff69b4); }
+}
+
+@keyframes totoroWatch {
+  0%, 100% { transform: scale(1) rotate(-2deg); opacity: 0.7; }
+  50% { transform: scale(1.05) rotate(2deg); opacity: 0.9; }
+}
+
+@keyframes spiritBless {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-8px) scale(1.1); opacity: 1; }
+}
+
+@keyframes jijiFlying {
+  0% { transform: translateX(-50px) translateY(0px); }
+  25% { transform: translateX(0px) translateY(-10px); }
+  50% { transform: translateX(50px) translateY(0px); }
+  75% { transform: translateX(100px) translateY(-5px); }
+  100% { transform: translateX(150px) translateY(0px); }
+}
+
+@keyframes photoShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }

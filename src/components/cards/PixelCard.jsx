@@ -8,273 +8,414 @@ const PixelCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
         <div className="pixel-header">
           <div className="pixel-title">GAME START!</div>
           <p style={{ 
-            fontSize: '0.9rem', 
+            fontSize: '0.7rem', 
             color: 'white', 
-            marginTop: '15px', 
+            marginTop: '10px', 
             fontFamily: "'Press Start 2P', cursive" 
           }}>
-            PLAYER 1 + PLAYER 2 = TRUE LOVE
+            CO-OP MODE: ETERNAL LOVE EDITION
           </p>
         </div>
         
         <div className="card-content">
+          {/* Game UI Panel */}
           <div style={{ 
-            background: 'rgba(0, 0, 0, 0.8)', 
+            background: '#2c3e50', 
             border: '4px solid #ecf0f1', 
-            borderRadius: '10px', 
-            padding: '20px', 
-            margin: '20px 0' 
+            borderRadius: '0', // Pure pixel style
+            padding: '15px', 
+            margin: '15px 0',
+            boxShadow: '4px 4px 0px #000'
           }}>
-            <div style={{ marginBottom: '20px' }}>
+            {/* Player Stats */}
+            <div style={{ marginBottom: '15px' }}>
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                margin: '10px 0', 
+                margin: '8px 0', 
                 color: 'white', 
                 fontFamily: "'Press Start 2P', cursive", 
-                fontSize: '0.7rem' 
+                fontSize: '0.6rem' 
               }}>
-                <span>HP:</span>
+                <span style={{ minWidth: '40px' }}>HP:</span>
                 <div style={{ 
-                  width: '100px', 
-                  height: '10px', 
-                  background: '#333', 
+                  width: '80px', 
+                  height: '8px', 
+                  background: '#000', 
                   border: '2px solid #fff', 
-                  margin: '0 10px', 
-                  position: 'relative' 
+                  margin: '0 8px', 
+                  position: 'relative',
+                  imageRendering: 'pixelated'
                 }}>
                   <div style={{ 
                     width: '100%', 
                     height: '100%', 
-                    background: 'linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f)' 
+                    background: '#e74c3c',
+                    imageRendering: 'pixelated'
                   }}></div>
                 </div>
-                <span>♥♥♥♥♥</span>
+                <span style={{ color: '#e74c3c' }}>♥♥♥♥♥</span>
               </div>
+              
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                margin: '10px 0', 
+                margin: '8px 0', 
                 color: 'white', 
                 fontFamily: "'Press Start 2P', cursive", 
-                fontSize: '0.7rem' 
+                fontSize: '0.6rem' 
               }}>
-                <span>LOVE:</span>
-                <span style={{ color: '#f1c40f', marginLeft: '10px' }}>★★★★★</span>
+                <span style={{ minWidth: '40px' }}>LVL:</span>
+                <div style={{ 
+                  width: '80px', 
+                  height: '8px', 
+                  background: '#000', 
+                  border: '2px solid #fff', 
+                  margin: '0 8px',
+                  imageRendering: 'pixelated'
+                }}>
+                  <div style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    background: '#f1c40f',
+                    imageRendering: 'pixelated'
+                  }}></div>
+                </div>
+                <span style={{ color: '#f1c40f' }}>MAX</span>
               </div>
             </div>
             
-            <div style={{ textAlign: 'center', margin: '20px 0' }}>
-              <div style={{ fontSize: '0.8rem', marginBottom: '15px' }}>☁️ ☁️ ☁️</div>
-              <div className="couple-names" style={{ 
+            {/* Character Sprites */}
+            <div style={{ textAlign: 'center', margin: '15px 0' }}>
+              <div style={{ 
+                display: 'inline-block', 
+                background: '#34495e', 
+                border: '2px solid #fff',
+                padding: '10px',
+                margin: '5px',
+                imageRendering: 'pixelated'
+              }}>
+                <div style={{ fontSize: '1.5rem', filter: 'contrast(1.2)' }}>🤵</div>
+                <div style={{ 
+                  color: '#3498db', 
+                  fontSize: '0.5rem', 
+                  fontFamily: "'Press Start 2P', cursive",
+                  marginTop: '5px'
+                }}>RHITAM</div>
+              </div>
+              
+              <span style={{ 
+                color: '#e74c3c', 
+                fontSize: '1.2rem', 
+                margin: '0 10px',
+                filter: 'contrast(1.5)'
+              }}>💖</span>
+              
+              <div style={{ 
+                display: 'inline-block', 
+                background: '#34495e', 
+                border: '2px solid #fff',
+                padding: '10px',
+                margin: '5px',
+                imageRendering: 'pixelated'
+              }}>
+                <div style={{ fontSize: '1.5rem', filter: 'contrast(1.2)' }}>👰</div>
+                <div style={{ 
+                  color: '#e91e63', 
+                  fontSize: '0.5rem', 
+                  fontFamily: "'Press Start 2P', cursive",
+                  marginTop: '5px'
+                }}>ROJIKA</div>
+              </div>
+            </div>
+            
+            {/* Achievement Unlocked */}
+            <div style={{
+              background: '#27ae60',
+              border: '2px solid #fff',
+              padding: '8px',
+              textAlign: 'center',
+              animation: 'pixelGlow 2s infinite'
+            }}>
+              <div style={{ 
                 color: 'white', 
                 fontFamily: "'Press Start 2P', cursive", 
-                fontSize: '1.3rem', 
-                margin: '20px 0' 
+                fontSize: '0.6rem' 
               }}>
-                👾 Rhitam & Rojika 👾
+                🏆 ACHIEVEMENT UNLOCKED!
               </div>
-              <div style={{ fontSize: '0.8rem', marginTop: '15px' }}>🟫🟫🟫🟫🟫🟫🟫🟫🟫🟫</div>
+              <div style={{ 
+                color: '#f1c40f', 
+                fontFamily: "'Press Start 2P', cursive", 
+                fontSize: '0.5rem',
+                marginTop: '3px'
+              }}>
+                "SOULMATE FOUND"
+              </div>
             </div>
           </div>
           
+          {/* Quest Log Window */}
           <div style={{ 
-            background: 'rgba(52, 73, 94, 0.8)', 
-            border: '3px solid #ecf0f1', 
-            borderRadius: '10px', 
-            padding: '20px', 
-            margin: '25px 0', 
-            textAlign: 'left' 
+            background: '#34495e', 
+            border: '4px solid #ecf0f1', 
+            borderRadius: '0',
+            padding: '15px', 
+            margin: '15px 0',
+            boxShadow: '4px 4px 0px #000'
           }}>
-            <h3 style={{ 
-              color: '#f39c12', 
-              fontFamily: "'Press Start 2P', cursive", 
-              fontSize: '1rem', 
-              marginBottom: '15px' 
+            {/* Window header */}
+            <div style={{
+              background: '#2c3e50',
+              margin: '-15px -15px 10px -15px',
+              padding: '8px 15px',
+              borderBottom: '2px solid #ecf0f1',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
             }}>
-              📖 QUEST LOG
-            </h3>
+              <h3 style={{ 
+                color: '#f39c12', 
+                fontFamily: "'Press Start 2P', cursive", 
+                fontSize: '0.7rem', 
+                margin: 0
+              }}>
+                📖 QUEST LOG
+              </h3>
+              <div style={{ color: '#e74c3c', fontSize: '0.8rem' }}>×</div>
+            </div>
+            
             <p style={{ 
-              color: 'white', 
+              color: '#ecf0f1', 
               fontFamily: "'Press Start 2P', cursive", 
-              fontSize: '0.8rem', 
-              lineHeight: '1.6' 
+              fontSize: '0.6rem', 
+              lineHeight: '1.4' 
             }}>
-              After countless adventures, grinding EXP, and collecting rare items, 
-              our heroes have unlocked the ultimate achievement: ETERNAL LOVE! 
-              Now they're hosting the most EPIC celebration in gaming history!
+              MAIN QUEST: Two players discovered the ultimate cheat code - 
+              INFINITE LOVE! Now they're hosting the final boss battle: 
+              THE WEDDING CEREMONY!
             </p>
-          </div>
-          
-          <div style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            border: '2px solid #3498db', 
-            borderRadius: '10px', 
-            padding: '20px', 
-            margin: '20px 0' 
-          }}>
-            <h3 style={{ 
-              color: '#e74c3c', 
-              fontFamily: "'Press Start 2P', cursive", 
-              fontSize: '0.9rem', 
-              marginBottom: '15px' 
-            }}>
-              🎮 MISSION PARAMETERS
-            </h3>
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: '1fr 1fr', 
-              gap: '10px', 
-              marginTop: '15px' 
+            
+            <div style={{
+              background: '#2c3e50',
+              padding: '8px',
+              margin: '10px 0',
+              border: '1px solid #7f8c8d'
             }}>
               <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                background: 'rgba(255, 255, 255, 0.1)', 
-                padding: '10px', 
-                borderRadius: '5px' 
+                color: '#27ae60', 
+                fontFamily: "'Press Start 2P', cursive", 
+                fontSize: '0.5rem' 
               }}>
-                <span style={{ 
-                  color: '#f39c12', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.6rem', 
-                  marginBottom: '5px' 
-                }}>BOOT DATE:</span>
-                <span style={{ 
-                  color: '#ecf0f1', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.7rem' 
-                }}>[Wedding Date]</span>
+                ✓ FIND PLAYER 2: COMPLETE
               </div>
               <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                background: 'rgba(255, 255, 255, 0.1)', 
-                padding: '10px', 
-                borderRadius: '5px' 
+                color: '#f39c12', 
+                fontFamily: "'Press Start 2P', cursive", 
+                fontSize: '0.5rem',
+                marginTop: '3px'
               }}>
-                <span style={{ 
-                  color: '#f39c12', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.6rem', 
-                  marginBottom: '5px' 
-                }}>START TIME:</span>
-                <span style={{ 
-                  color: '#ecf0f1', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.7rem' 
-                }}>[Time]</span>
-              </div>
-              <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                background: 'rgba(255, 255, 255, 0.1)', 
-                padding: '10px', 
-                borderRadius: '5px' 
-              }}>
-                <span style={{ 
-                  color: '#f39c12', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.6rem', 
-                  marginBottom: '5px' 
-                }}>MAP LOCATION:</span>
-                <span style={{ 
-                  color: '#ecf0f1', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.7rem' 
-                }}>[Venue Name]</span>
-              </div>
-              <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                background: 'rgba(255, 255, 255, 0.1)', 
-                padding: '10px', 
-                borderRadius: '5px' 
-              }}>
-                <span style={{ 
-                  color: '#f39c12', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.6rem', 
-                  marginBottom: '5px' 
-                }}>COORDINATES:</span>
-                <span style={{ 
-                  color: '#ecf0f1', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.7rem' 
-                }}>[Address]</span>
+                ▶ JOIN WEDDING PARTY: IN PROGRESS
               </div>
             </div>
           </div>
           
+          {/* Mission Parameters */}
           <div style={{ 
-            background: 'rgba(231, 76, 60, 0.3)', 
-            border: '3px solid #e74c3c', 
-            borderRadius: '10px', 
-            padding: '25px', 
-            margin: '25px 0', 
-            textAlign: 'center' 
+            background: '#2c3e50', 
+            border: '4px solid #3498db', 
+            borderRadius: '0',
+            padding: '15px', 
+            margin: '15px 0',
+            boxShadow: '4px 4px 0px #000'
           }}>
             <h3 style={{ 
-              color: '#e74c3c', 
-              fontFamily: "'Press Start 2P', cursive", 
-              fontSize: '0.9rem', 
-              marginBottom: '15px' 
-            }}>
-              🕹️ PLAYER INPUT REQUIRED
-            </h3>
-            <p style={{ 
-              color: 'white', 
+              color: '#3498db', 
               fontFamily: "'Press Start 2P', cursive", 
               fontSize: '0.7rem', 
-              marginBottom: '20px' 
+              marginBottom: '10px',
+              textAlign: 'center'
             }}>
-              WILL YOU JOIN OUR GUILD FOR THIS EPIC RAID?
-            </p>
-            <button 
-              className="special-effects-btn" 
-              onClick={() => onModalOpen('pixel')} 
-              style={{ 
-                background: 'linear-gradient(45deg, #27ae60, #2ecc71)', 
-                color: 'white', 
-                fontFamily: "'Press Start 2P', cursive", 
-                fontSize: '0.8rem', 
-                margin: '10px' 
-              }}
-            >
-              ▶ PRESS A - JOIN PARTY!
-            </button>
-            <button 
-              className="special-effects-btn" 
-              onClick={(e) => onSpecialEffect('pixel', e)} 
-              style={{ 
-                background: 'linear-gradient(45deg, #3498db, #2980b9)', 
-                color: 'white', 
-                fontFamily: "'Press Start 2P', cursive", 
-                fontSize: '0.8rem', 
-                margin: '10px' 
-              }}
-            >
-              📱 PRESS B - SEND MESSAGE
-            </button>
+              🎮 MISSION BRIEFING
+            </h3>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ 
+                background: '#34495e', 
+                padding: '8px', 
+                border: '1px solid #7f8c8d',
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}>
+                <span style={{ 
+                  color: '#f39c12', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem'
+                }}>DATE:</span>
+                <span style={{ 
+                  color: '#ecf0f1', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem' 
+                }}>25 JAN 2026</span>
+              </div>
+              
+              <div style={{ 
+                background: '#34495e', 
+                padding: '8px', 
+                border: '1px solid #7f8c8d',
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}>
+                <span style={{ 
+                  color: '#f39c12', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem'
+                }}>TIME:</span>
+                <span style={{ 
+                  color: '#ecf0f1', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem' 
+                }}>7:00 PM</span>
+              </div>
+              
+              <div style={{ 
+                background: '#34495e', 
+                padding: '8px', 
+                border: '1px solid #7f8c8d',
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}>
+                <span style={{ 
+                  color: '#f39c12', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem'
+                }}>LOCATION:</span>
+                <span style={{ 
+                  color: '#ecf0f1', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem' 
+                }}>BLUE PARADISE</span>
+              </div>
+              
+              <div style={{ 
+                background: '#34495e', 
+                padding: '8px', 
+                border: '1px solid #7f8c8d',
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}>
+                <span style={{ 
+                  color: '#f39c12', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem'
+                }}>AREA:</span>
+                <span style={{ 
+                  color: '#ecf0f1', 
+                  fontFamily: "'Press Start 2P', cursive", 
+                  fontSize: '0.5rem' 
+                }}>GUWAHATI</span>
+              </div>
+            </div>
           </div>
+          
+          {/* Action Panel */}
           <div style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            border: '2px solid #95a5a6', 
-            borderRadius: '10px', 
+            background: '#e74c3c', 
+            border: '4px solid #fff', 
+            borderRadius: '0',
             padding: '15px', 
-            margin: '20px 0', 
-            textAlign: 'center' 
+            margin: '15px 0', 
+            textAlign: 'center',
+            boxShadow: '4px 4px 0px #000'
+          }}>
+            <h3 style={{ 
+              color: 'white', 
+              fontFamily: "'Press Start 2P', cursive", 
+              fontSize: '0.6rem', 
+              marginBottom: '10px',
+              textShadow: '2px 2px 0px #000'
+            }}>
+              🕹️ SELECT ACTION
+            </h3>
+            
+            <div style={{ 
+              background: '#2c3e50',
+              padding: '10px',
+              margin: '10px 0',
+              border: '2px solid #fff'
+            }}>
+              <p style={{ 
+                color: '#f1c40f', 
+                fontFamily: "'Press Start 2P', cursive", 
+                fontSize: '0.5rem', 
+                marginBottom: '10px' 
+              }}>
+                JOIN THE PARTY?
+              </p>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+                <button 
+                  className="special-effects-btn" 
+                  onClick={() => onModalOpen('pixel')} 
+                  style={{ 
+                    background: '#27ae60', 
+                    color: 'white', 
+                    fontFamily: "'Press Start 2P', cursive", 
+                    fontSize: '0.6rem',
+                    padding: '10px 15px',
+                    border: '3px solid #fff',
+                    borderRadius: '0',
+                    boxShadow: '3px 3px 0px #000',
+                    width: '100%',
+                    maxWidth: '200px',
+                    imageRendering: 'pixelated'
+                  }}
+                >
+                  ▶ YES - JOIN PARTY!
+                </button>
+                
+                <button 
+                  className="special-effects-btn" 
+                  onClick={(e) => onSpecialEffect('pixel', e)} 
+                  style={{ 
+                    background: '#3498db', 
+                    color: 'white', 
+                    fontFamily: "'Press Start 2P', cursive", 
+                    fontSize: '0.6rem',
+                    padding: '10px 15px',
+                    border: '3px solid #fff',
+                    borderRadius: '0',
+                    boxShadow: '3px 3px 0px #000',
+                    width: '100%',
+                    maxWidth: '200px',
+                    imageRendering: 'pixelated'
+                  }}
+                >
+                  📱 SEND MESSAGE
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Game Info Footer */}
+          <div style={{ 
+            background: '#2c3e50', 
+            border: '2px solid #95a5a6', 
+            borderRadius: '0',
+            padding: '10px', 
+            margin: '15px 0', 
+            textAlign: 'center',
+            boxShadow: '2px 2px 0px #000'
           }}>
             <p style={{ 
               color: '#bdc3c7', 
               fontFamily: "'Press Start 2P', cursive", 
-              fontSize: '0.6rem', 
-              lineHeight: '1.5' 
+              fontSize: '0.4rem', 
+              lineHeight: '1.3' 
             }}>
-              GAME MASTER: [Your Contact]<br />
-              LOOT TABLE: [Registry Info]<br />
-              DIFFICULTY: EASY & FUN<br />
-              SAVE POINT: UNLIMITED MEMORIES
+              PLAYERS: 2/∞ | DIFFICULTY: WHOLESOME<br />
+              GENRE: ROMANCE/ADVENTURE | RATING: E FOR EVERYONE<br />
+              DEVELOPED BY: DESTINY STUDIOS
             </p>
           </div>
         </div>

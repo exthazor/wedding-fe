@@ -76,15 +76,26 @@ const App = () => {
   }, []);
 
   const showCard = (theme) => {
-    setActiveCard(theme);
-    // Scroll to card area
-    setTimeout(() => {
-      const cardElement = document.getElementById(`${theme}-card`);
-      if (cardElement) {
-        cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 100);
-  };
+  setActiveCard(theme);
+  
+  setTimeout(() => {
+    const cardElement = document.getElementById(`${theme}-card`);
+    if (cardElement) {
+      // Get card position
+      const rect = cardElement.getBoundingClientRect();
+      const offsetTop = window.pageYOffset + rect.top;
+      
+      // Adjust offset based on screen size
+      const isMobile = window.innerWidth <= 768;
+      const offset = isMobile ? 10 : 20;
+      
+      window.scrollTo({
+        top: offsetTop - offset,
+        behavior: 'smooth'
+      });
+    }
+  }, 200); // Slightly longer delay for card animation
+};
 
   const handleModalOpen = (theme) => {
     setOpenModal(theme);

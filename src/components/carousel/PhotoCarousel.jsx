@@ -9,6 +9,10 @@ const PhotoCarousel = () => {
       position: 'center 60%'
     },
     {
+      src: '/photos/photo_4.jpg', // Comic Con outfit
+      position: 'center 75%'
+    },
+    {
       src: '/photos/photo_1.jpg', // Motorcycle photo
       position: 'center 35%'
     },
