@@ -394,38 +394,76 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
               </div>
 
               {/* Location */}
-              <div style={{
-                margin: '20px 0',
-                padding: '15px',
-                background: 'rgba(139, 69, 19, 0.3)',
-                borderRadius: '8px',
-                borderLeft: '4px solid #D4AF37'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ fontSize: '2.5rem', marginRight: '15px' }}>🗡️</div>
-                  <div>
-                    <h4 style={{
-                      color: '#D4AF37',
-                      fontFamily: "'Cinzel', serif",
-                      fontSize: '1.2rem',
-                      marginBottom: '8px'
-                    }}>
-                      The Grand Celebration
-                    </h4>
-                    <p style={{ color: '#E8E8E8', fontSize: '0.9rem', margin: '3px 0' }}>
-                      <strong>Location:</strong> Blue Paradise, Guwahati, Assam
-                    </p>
-                    <p style={{
-                      color: '#B0B0B0',
-                      fontStyle: 'italic',
-                      fontSize: '0.8rem',
-                      marginTop: '8px'
-                    }}>
-                      "Where songs will be sung of this legendary union"
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* Location */}
+<div style={{
+  margin: '20px 0',
+  padding: '15px',
+  background: 'rgba(139, 69, 19, 0.3)',
+  borderRadius: '8px',
+  borderLeft: '4px solid #D4AF37'
+}}>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ fontSize: '2.5rem', marginRight: '15px' }}>🗡️</div>
+    <div style={{ width: '100%' }}>
+      <h4 style={{
+        color: '#D4AF37',
+        fontFamily: "'Cinzel', serif",
+        fontSize: '1.2rem',
+        marginBottom: '8px'
+      }}>
+        The Grand Celebration
+      </h4>
+      <p style={{ color: '#E8E8E8', fontSize: '0.9rem', margin: '3px 0' }}>
+        <strong>Location:</strong> Blue Paradise, Guwahati, Assam
+      </p>
+      
+      {/* Add the clickable map link */}
+      <div style={{ marginTop: '10px' }}>
+        <a 
+          href="https://maps.app.goo.gl/hQZGJ8mh1VZRqJob7" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            color: '#D4AF37', 
+            fontFamily: "'Cinzel', serif", 
+            fontSize: '0.9rem',
+            textDecoration: 'none',
+            padding: '8px 15px',
+            background: 'rgba(212, 175, 55, 0.2)',
+            border: '2px solid #D4AF37',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease',
+            display: 'inline-block',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(212, 175, 55, 0.4)';
+            e.target.style.color = '#FFD700';
+            e.target.style.transform = 'translateY(-1px)';
+            e.target.style.boxShadow = '0 4px 12px rgba(212, 175, 55, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(212, 175, 55, 0.2)';
+            e.target.style.color = '#D4AF37';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = 'none';
+          }}
+        >
+          🗺️ Open Map purchased from merchant
+        </a>
+      </div>
+      
+      <p style={{
+        color: '#B0B0B0',
+        fontStyle: 'italic',
+        fontSize: '0.8rem',
+        marginTop: '8px'
+      }}>
+        "Where songs will be sung of this legendary union"
+      </p>
+    </div>
+  </div>
+</div>
             </div>
 
             {/* Couple Names */}

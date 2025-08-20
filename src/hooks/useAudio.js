@@ -18,10 +18,10 @@ const useAudio = () => {
     }
 
     const audioFiles = {
-      ghibli: '/audio/ghibli-music.mp3',
-      witcher: '/audio/witcher-music.mp3',
-      cyberpunk: '/audio/cyberpunk-music.mp3',
-      pixel: '/audio/pixel-music.mp3'
+      ghibli: '/audio/ghibli_music.mp3',
+      witcher: '/audio/witcher_music.mp3',
+      cyberpunk: '/audio/cyberpunk_music.mp3',
+      pixel: '/audio/pixel_music.mp3'
     };
 
     if (audioFiles[theme]) {

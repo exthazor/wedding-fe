@@ -9,6 +9,7 @@ import CyberpunkCard from './components/cards/CyberpunkCard';
 import PixelCard from './components/cards/PixelCard';
 import PhotoCarousel from './components/carousel/PhotoCarousel';
 import './styles/main.css';
+import useAudio from './hooks/useAudio';
 
 const App = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -16,6 +17,7 @@ const App = () => {
   const [stars, setStars] = useState([]);
   const [petals, setPetals] = useState([]);
   const [particles, setParticles] = useState([]);
+  const { playThemeMusic, stopMusic, toggleMusic, isPlaying } = useAudio();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -77,6 +79,7 @@ const App = () => {
 
   const showCard = (theme) => {
   setActiveCard(theme);
+  playThemeMusic(theme);
   
   setTimeout(() => {
     const cardElement = document.getElementById(`${theme}-card`);
@@ -96,6 +99,33 @@ const App = () => {
     }
   }, 200); // Slightly longer delay for card animation
 };
+
+const MusicControl = () => (
+  <div style={{
+    position: 'fixed',
+    top: '20px',
+    right: '20px',
+    display: 'flex',
+    gap: '10px',
+    zIndex: 1001
+  }}>
+    <button
+      onClick={toggleMusic}
+      style={{
+        background: 'rgba(0,0,0,0.7)',
+        color: 'white',
+        border: 'none',
+        borderRadius: '50%',
+        width: '45px',
+        height: '45px',
+        fontSize: '1rem',
+        cursor: 'pointer'
+      }}
+    >
+      {isPlaying ? '⏸️' : '▶️'}
+    </button>
+  </div>
+);
 
   const handleModalOpen = (theme) => {
     setOpenModal(theme);
@@ -258,7 +288,7 @@ const App = () => {
 
   return (
     <div className="wedding-app">
-      
+      <MusicControl />
       <BackgroundAnimation stars={stars} />
       <ParticleSystem particles={particles} />
       <PhotoCarousel />

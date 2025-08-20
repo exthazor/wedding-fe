@@ -279,23 +279,47 @@ const PixelCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
               </div>
               
               <div style={{ 
-                background: '#34495e', 
-                padding: '8px', 
-                border: '1px solid #7f8c8d',
-                display: 'flex',
-                justifyContent: 'space-between'
-              }}>
-                <span style={{ 
-                  color: '#f39c12', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.5rem'
-                }}>LOCATION:</span>
-                <span style={{ 
-                  color: '#ecf0f1', 
-                  fontFamily: "'Press Start 2P', cursive", 
-                  fontSize: '0.5rem' 
-                }}>BLUE PARADISE</span>
-              </div>
+  background: '#34495e', 
+  padding: '8px', 
+  border: '1px solid #7f8c8d',
+  display: 'flex',
+  flexDirection: 'column'
+}}>
+  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <span style={{ 
+      color: '#f39c12', 
+      fontFamily: "'Press Start 2P', cursive", 
+      fontSize: '0.5rem'
+    }}>LOCATION:</span>
+    <span style={{ 
+      color: '#ecf0f1', 
+      fontFamily: "'Press Start 2P', cursive", 
+      fontSize: '0.5rem' 
+    }}>BLUE PARADISE</span>
+  </div>
+  
+  <a 
+    href="https://maps.app.goo.gl/hQZGJ8mh1VZRqJob7" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ 
+      color: '#fff', 
+      fontFamily: "'Press Start 2P', cursive", 
+      fontSize: '0.4rem',
+      textDecoration: 'none',
+      textAlign: 'center',
+      marginTop: '5px',
+      padding: '4px 8px',
+      background: '#27ae60',
+      border: '2px solid #fff',
+      borderRadius: '0',
+      boxShadow: '2px 2px 0px #000',
+      imageRendering: 'pixelated'
+    }}
+  >
+    ▶ NAVIGATE
+  </a>
+</div>
               
               <div style={{ 
                 background: '#34495e', 
