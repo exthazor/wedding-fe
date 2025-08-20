@@ -1,4 +1,4 @@
-const PixelCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
+const PixelCard = ({ isActive, onModalOpen, onSpecialEffect, onWhatsAppMessage }) => {
   return (
     <div className="card-wrapper">
       <div 
@@ -400,7 +400,7 @@ const PixelCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                 
                 <button 
                   className="special-effects-btn" 
-                  onClick={(e) => onSpecialEffect('pixel', e)} 
+                  onClick={(e) => onWhatsAppMessage('ghibli', e)}
                   style={{ 
                     background: '#3498db', 
                     color: 'white', 

@@ -326,25 +326,25 @@ const sendWhatsAppMessage = (theme) => {
         isActive={activeCard === 'ghibli'}
         petals={petals}
         onModalOpen={handleModalOpen}
-        onSpecialEffect={triggerSpecialEffect}
+        onWhatsAppMessage={sendWhatsAppMessage} 
       />
       
       <WitcherCard 
         isActive={activeCard === 'witcher'}
         onModalOpen={handleModalOpen}
-        onSpecialEffect={triggerSpecialEffect}
+        onWhatsAppMessage={sendWhatsAppMessage} 
       />
       
       <CyberpunkCard 
         isActive={activeCard === 'cyberpunk'}
         onModalOpen={handleModalOpen}
-        onSpecialEffect={triggerSpecialEffect}
+        onWhatsAppMessage={sendWhatsAppMessage} 
       />
       
       <PixelCard 
         isActive={activeCard === 'pixel'}
         onModalOpen={handleModalOpen}
-        onSpecialEffect={triggerSpecialEffect}
+        onWhatsAppMessage={sendWhatsAppMessage} 
       />
       
       <ModalSystem

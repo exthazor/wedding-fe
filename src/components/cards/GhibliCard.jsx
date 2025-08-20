@@ -1,4 +1,4 @@
-const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
+const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect, onWhatsAppMessage }) => {
   return (
     <div className="card-wrapper">
       <div 
@@ -662,7 +662,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               
               <button 
                 className="special-effects-btn" 
-                onClick={(e) => onSpecialEffect('ghibli', e)} 
+                onClick={(e) => onWhatsAppMessage('ghibli', e)} 
                 style={{
                   background: 'linear-gradient(45deg, #DDA0DD, #F0E68C, #FFB6C1)',
                   color: '#2c3e50',

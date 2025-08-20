@@ -1,4 +1,4 @@
-const CyberpunkCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
+const CyberpunkCard = ({ isActive, onModalOpen, onSpecialEffect, onWhatsAppMessage }) => {
   return (
     <div className="card-wrapper">
       <div 
@@ -480,7 +480,7 @@ const CyberpunkCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                 </button>
                 <button 
                 className="special-effects-btn" 
-                onClick={(e) => onSpecialEffect('cyberpunk', e)} 
+                onClick={(e) => onWhatsAppMessage('ghibli', e)}
                 style={{ 
                     background: 'linear-gradient(45deg, #ff0080, #ffd700)', 
                     color: 'black', 

@@ -1,4 +1,4 @@
-const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
+const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect, onWhatsAppMessage }) => {
   return (
     <div className="card-wrapper">
       <div 
@@ -468,7 +468,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
               </button>
 
               <button
-                onClick={(e) => onSpecialEffect('witcher', e)}
+                onClick={(e) => onWhatsAppMessage('ghibli', e)}
                 style={{
                   background: 'linear-gradient(45deg, #2F2F2F, #5A5A5A)',
                   color: '#D4AF37',
