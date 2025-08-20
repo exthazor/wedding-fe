@@ -178,7 +178,17 @@ body {
         
         /* Ghibli Theme */
         .ghibli-card {
-            background: linear-gradient(135deg, #87CEEB 0%, #E6E6FA 50%, #F0F8FF 100%);
+            background: linear-gradient(135deg, #87CEEB 0%, #E6E6FA 10%, #F0F8FF 20%);
+            position: relative;
+        }
+
+        .ghibli-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('public/textures/watercolor-paper.jpg');
+            opacity: 0.2; /* Keep it very subtle */
+            pointer-events: none;
         }
         
         .ghibli-header {
@@ -281,11 +291,8 @@ body {
         
         /* --- NEW Witcher Theme --- */
         .witcher-card {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #1a1a2e 100%);
-            color: #E0E0E0;
-            border: 3px solid #50A6C2;
-            position: relative;
-            box-shadow: 0 0 30px rgba(80, 166, 194, 0.5);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%), img('/public/textures/dark-leather.png');
+            background-blend-mode: overlay; /* Blends the color and texture */
         }
         
         .witcher-card::before {

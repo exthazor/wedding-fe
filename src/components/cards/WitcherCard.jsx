@@ -319,7 +319,9 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
 
           {/* Wedding Contract */}
           <div style={{
-            background: 'linear-gradient(135deg, rgba(40, 20, 10, 0.9), rgba(60, 30, 15, 0.8))',
+            backgroundImage: 'url(/textures/aged-parchment.jpg)',      
+            backgroundSize: 'cover',
+            backgroundBlendMode: 'multiply',
             border: '2px solid #8B4513',
             borderRadius: '12px',
             padding: '25px',
@@ -327,22 +329,8 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
             boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.4)',
             position: 'relative'
           }}>
-            {/* Parchment texture */}
-            <div style={{
-              position: 'absolute',
-              top: 0, left: 0, right: 0, bottom: 0,
-              background: `repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(139, 69, 19, 0.1) 2px,
-                rgba(139, 69, 19, 0.1) 4px
-              )`,
-              borderRadius: '12px'
-            }}></div>
-
             <h3 style={{
-              color: '#D4AF37',
+              color: '#191505ff',
               fontFamily: "'Cinzel', serif",
               textAlign: 'center',
               marginBottom: '20px',
@@ -368,7 +356,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                   <div style={{ fontSize: '2.5rem', marginRight: '15px' }}>🏰</div>
                   <div>
                     <h4 style={{
-                      color: '#D4AF37',
+                      color: '#a51600ff',
                       fontFamily: "'Cinzel', serif",
                       fontSize: '1.2rem',
                       marginBottom: '8px'
@@ -382,7 +370,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
                       <strong>Hour of Power:</strong> 7:00 PM
                     </p>
                     <p style={{
-                      color: '#B0B0B0',
+                      color: '#620909ff',
                       fontStyle: 'italic',
                       fontSize: '0.8rem',
                       marginTop: '8px'
@@ -406,7 +394,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
     <div style={{ fontSize: '2.5rem', marginRight: '15px' }}>🗡️</div>
     <div style={{ width: '100%' }}>
       <h4 style={{
-        color: '#D4AF37',
+        color: '#a51600ff',
         fontFamily: "'Cinzel', serif",
         fontSize: '1.2rem',
         marginBottom: '8px'
@@ -454,7 +442,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
       </div>
       
       <p style={{
-        color: '#B0B0B0',
+        color: '#620909ff',
         fontStyle: 'italic',
         fontSize: '0.8rem',
         marginTop: '8px'
@@ -474,7 +462,7 @@ const WitcherCard = ({ isActive, onModalOpen, onSpecialEffect }) => {
               zIndex: 1
             }}>
               <div style={{
-                color: '#D4AF37',
+                color: '#790202ff',
                 fontFamily: "'Cinzel', serif",
                 fontSize: '2rem',
                 margin: '15px 0',

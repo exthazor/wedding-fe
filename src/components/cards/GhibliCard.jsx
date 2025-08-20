@@ -9,11 +9,11 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
   background: 'linear-gradient(180deg, #87CEEB 0%, #E6E6FA 60%, #F0F8FF 100%)',
   position: 'relative',
   overflow: 'hidden',
-  height: '160px',
-  padding: '40px 30px',
-  textAlign: 'center'
+  padding: '30px',
+  textAlign: 'center',
+  borderBottom: '4px solid rgba(255, 255, 255, 0.5)' // Added a subtle border for effect
 }}>
-  {/* Gentle floating petals */}
+  {/* Gentle floating petals remain in the background */}
   <div className="floating-petals">
     {petals.map(petal => (
       <div
@@ -32,44 +32,53 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
     ))}
   </div>
   
-  {/* Simple Totoro scene */}
-  <div style={{ 
-    position: 'absolute',
-    bottom: '20px',
-    left: '20%',
-    fontSize: '2rem',
-    animation: 'gentleSway 4s ease-in-out infinite'
-  }}>☂️</div>
-  
-  <div style={{ 
-    position: 'absolute',
-    bottom: '20px',
-    right: '20%',
-    fontSize: '2rem',
-    animation: 'catbusDrive 8s linear infinite'
-  }}>🚌</div>
-
-  {/* Clean, simple title */}
-  <div style={{ 
-    fontSize: '2.5rem',
-    fontFamily: "'Kalam', cursive",
-    color: '#2c3e50',
-    fontWeight: 'bold',
-    textShadow: '2px 2px 4px rgba(255,255,255,0.8)',
-    animation: 'gentleBounce 3s ease-in-out infinite',
-    marginBottom: '10px'
+  {/* NEW: Container for the logo elements */}
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative', // Ensures it's on top of petals
+    zIndex: 1
   }}>
-    A Magical Beginning
+    {/* NEW: Totoro Icon */}
+    {/* For best results, replace the text character '⚫' with a real Totoro silhouette SVG or transparent PNG */}
+    <img 
+      src="totoro.svg" // Example path, use your own icon
+      alt="Totoro silhouette" 
+      style={{ 
+        width: '250px', 
+        height: 'auto', 
+        marginBottom: '5px',
+        // Optional filter to force the blue color onto an SVG
+        filter: 'invert(26%) sepia(99%) saturate(1313%) hue-rotate(187deg) brightness(93%) contrast(101%)'
+      }} 
+    />
+
+    {/* UPDATED: The Main Title */}
+    <div style={{ 
+      fontSize: '2.2rem', // Adjusted for boldness
+      fontFamily: "'Crete Round', serif",
+      color: '#005A9C',
+      fontWeight: 'bold',
+      letterSpacing: '1px' 
+      // REMOVED: textShadow and animation for a solid, static logo feel
+    }}>
+      Rhitam & Rojika 
+    </div>
   </div>
   
+  {/* UPDATED: Subtitle */}
   <p style={{ 
     fontSize: '1rem', 
     color: '#2c3e50', 
     fontStyle: 'italic',
     fontFamily: "'Kalam', cursive",
-    textShadow: '1px 1px 2px rgba(255,255,255,0.9)'
+    marginTop: '15px',
+    position: 'relative',
+    zIndex: 1
   }}>
-    "Where dreams bloom into forever..."
+    Invite you to their magical beginning
   </p>
 </div>
         

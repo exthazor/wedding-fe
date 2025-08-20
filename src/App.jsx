@@ -280,9 +280,10 @@ const MusicControl = () => (
   // Load Google Fonts
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Press+Start+2P&family=Kalam:wght@400;700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Crete+Round&family=MedievalSharp&family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Press+Start+2P&family=Kalam:wght@400;700&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
+    
 
     return () => {
       // Cleanup: remove the link when component unmounts
