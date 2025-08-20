@@ -7,6 +7,7 @@ import GhibliCard from './components/cards/GhibliCard';
 import WitcherCard from './components/cards/WitcherCard';
 import CyberpunkCard from './components/cards/CyberpunkCard';
 import PixelCard from './components/cards/PixelCard';
+import PhotoCarousel from './components/carousel/PhotoCarousel';
 import './styles/main.css';
 
 const App = () => {
@@ -249,7 +250,7 @@ const App = () => {
       
       <BackgroundAnimation stars={stars} />
       <ParticleSystem particles={particles} />
-      
+      <PhotoCarousel />
       <ThemeSelector onThemeSelect={showCard} />
       
       <GhibliCard 
