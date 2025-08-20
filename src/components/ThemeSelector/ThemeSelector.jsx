@@ -1,9 +1,9 @@
 const ThemeSelector = ({ onThemeSelect }) => {
   return (
     <div className="theme-selector">
-      <h1>✨ CHOOSE YOUR WEDDING ADVENTURE ✨</h1>
+      <h1>✨ YOU'RE INVITED TO OUR WEDDING! ✨</h1>
       <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '20px' }}>
-        Select a theme that matches your love story!
+        Pick the style that feels most like YOU!
       </p>
       
       <div className="theme-buttons">

@@ -1,0 +1,73 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Groom -->
+  <g transform="translate(25, 15)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="15" fill="#FDBCB4"/>
+    <!-- Hair -->
+    <path d="M-12 -10 Q0 -18 12 -10 Q10 -15 0 -15 Q-10 -15 -12 -10" fill="#8B4513"/>
+    <!-- Eyes -->
+    <circle cx="-5" cy="-3" r="1.5" fill="#000"/>
+    <circle cx="5" cy="-3" r="1.5" fill="#000"/>
+    <!-- Smile -->
+    <path d="M-4 4 Q0 8 4 4" stroke="#000" stroke-width="1.5" fill="none"/>
+    
+    <!-- Body -->
+    <rect x="-12" y="15" width="24" height="35" rx="4" fill="#2C3E50"/>
+    <!-- Arms -->
+    <rect x="-18" y="20" width="6" height="20" rx="3" fill="#FDBCB4"/>
+    <rect x="12" y="20" width="6" height="20" rx="3" fill="#FDBCB4"/>
+    <!-- Tie -->
+    <polygon points="0,15 -4,22 0,42 4,22" fill="#8B0000"/>
+    <!-- Legs -->
+    <rect x="-8" y="50" width="7" height="25" fill="#2C3E50"/>
+    <rect x="1" y="50" width="7" height="25" fill="#2C3E50"/>
+    <!-- Shoes -->
+    <ellipse cx="-4" cy="78" rx="6" ry="3" fill="#000"/>
+    <ellipse cx="4" cy="78" rx="6" ry="3" fill="#000"/>
+  </g>
+
+  <!-- Bride -->
+  <g transform="translate(75, 15)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="15" fill="#FDBCB4"/>
+    <!-- Hair -->
+    <path d="M-15 -7 Q0 -22 15 -7 Q12 -18 0 -18 Q-12 -18 -15 -7" fill="#8B4513"/>
+    <!-- Veil -->
+    <path d="M-18 -10 Q0 -25 18 -10 L15 15 Q0 8 -15 15 Z" fill="#FFF" opacity="0.9"/>
+    <!-- Eyes -->
+    <circle cx="-5" cy="-3" r="1.5" fill="#000"/>
+    <circle cx="5" cy="-3" r="1.5" fill="#000"/>
+    <!-- Smile -->
+    <path d="M-4 4 Q0 8 4 4" stroke="#000" stroke-width="1.5" fill="none"/>
+    
+    <!-- Wedding dress -->
+    <path d="M-18 15 L18 15 L22 60 Q0 70 -22 60 Z" fill="#FFF"/>
+    <!-- Dress details -->
+    <path d="M-12 25 Q0 22 12 25" stroke="#E6E6FA" stroke-width="1.5" fill="none"/>
+    <path d="M-15 35 Q0 32 15 35" stroke="#E6E6FA" stroke-width="1.5" fill="none"/>
+    
+    <!-- Arms -->
+    <rect x="-24" y="20" width="6" height="18" rx="3" fill="#FDBCB4"/>
+    <rect x="18" y="20" width="6" height="18" rx="3" fill="#FDBCB4"/>
+    
+    <!-- Bouquet -->
+    <circle cx="-27" cy="35" r="6" fill="#FFB6C1"/>
+    <circle cx="-30" cy="32" r="3" fill="#FF69B4"/>
+    <circle cx="-24" cy="32" r="3" fill="#FFC0CB"/>
+    <circle cx="-27" cy="38" r="3" fill="#FFB6C1"/>
+    
+    <!-- Dress bottom extension -->
+    <path d="M-22 60 Q0 75 22 60 L25 85 Q0 95 -25 85 Z" fill="#FFF"/>
+  </g>
+
+  <!-- Heart above -->
+  <path d="M50 8 C46 2, 35 2, 35 15 C35 20, 50 35, 50 35 C50 35, 65 20, 65 15 C65 2, 54 2, 50 8 Z" 
+        fill="#FF69B4" opacity="0.8">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.2;1"
+      dur="2s"
+      repeatCount="indefinite"/>
+  </path>
+</svg>

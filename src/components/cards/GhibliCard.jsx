@@ -58,7 +58,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
             color: '#2c3e50', 
             fontFamily: "'Kalam', cursive", 
             position: 'relative', 
-            fontSize: '2.2rem' 
+            fontSize: '1.8rem' 
           }}>
             🌸 Rhitam & Rojika 🌸
             <div style={{ 
@@ -93,7 +93,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               textAlign: 'center' 
             }}>
               Like <strong>Totoro watching over the forest</strong>, <strong>Kiki finding her purpose</strong>, 
-              <strong>Princess Kaguya's celestial love</strong>, and <strong>Porco's adventures in the sky</strong>... 
+              <strong> Princess Kaguya's celestial love</strong>, and <strong>Porco's adventures in the sky</strong>... 
               some stories are destined to become timeless. Our love story is one of them. 
               Join us as we begin our greatest adventure together! 🌟
             </p>
@@ -123,7 +123,7 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               <div className="chapter-icon">🌳</div>
               <div>
                 <h4 style={{ color: '#27ae60', fontFamily: "'Kalam', cursive" }}>Chapter 1: The Ceremony</h4>
-                <p style={{ color: '#2c3e50' }}><strong>When:</strong> [Wedding Date] at [Time]</p>
+                <p style={{ color: '#2c3e50' }}><strong>When:</strong> 25th January, 2026 at 7pm</p>
                 <p style={{ color: '#7f8c8d', fontStyle: 'italic' }}>"Where our hearts first say 'I do' under Totoro's blessing"</p>
               </div>
             </div>
@@ -135,8 +135,16 @@ const GhibliCard = ({ isActive, petals, onModalOpen, onSpecialEffect }) => {
               <div className="chapter-icon">🧙‍♀️</div>
               <div>
                 <h4 style={{ color: '#8e44ad', fontFamily: "'Kalam', cursive" }}>Chapter 2: The Journey Begins</h4>
-                <p style={{ color: '#2c3e50' }}><strong>Where:</strong> [Venue Name]</p>
-                <p style={{ color: '#2c3e50' }}><strong>Location:</strong> [Full Address]</p>
+                <p style={{ color: '#2c3e50' }}><strong>Where:</strong> Guwahati, Assam</p>
+                <p style={{ color: '#2c3e50' }}>
+                    <strong>Location:</strong> 
+                    <a href="https://maps.app.goo.gl/hQZGJ8mh1VZRqJob7" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#8e44ad', textDecoration: 'underline', marginLeft: '5px' }}>
+                        Blue Paradise, Guwahati 📍
+                    </a>
+                </p>
                 <p style={{ color: '#7f8c8d', fontStyle: 'italic' }}>"Like Kiki's first delivery, our new life takes flight"</p>
               </div>
             </div>
