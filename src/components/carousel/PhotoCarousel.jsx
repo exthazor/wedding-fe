@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 const PhotoCarousel = () => {
@@ -35,14 +36,36 @@ const PhotoCarousel = () => {
 
   return (
     <div className="hero-carousel">
-      <div className="carousel-container">
+      <div 
+        className="carousel-container"
+        style={{
+          // Safari-specific fixes
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+          willChange: 'auto',
+          backgroundColor: '#000', // Ensure consistent background
+          overflow: 'hidden'
+        }}
+      >
         {photos.map((photo, index) => (
           <img
             key={index}
             src={photo.src}
             alt={`Rhitam & Rojika ${index + 1}`}
             className={`carousel-photo ${index === currentPhoto ? 'active' : ''}`}
-            style={{ objectPosition: photo.position }}
+            style={{ 
+              objectPosition: photo.position,
+              // Safari-specific image fixes
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
+              willChange: index === currentPhoto ? 'opacity' : 'auto',
+              // Ensure images fill completely
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+            // Preload next image to prevent flashing
+            loading={index <= currentPhoto + 1 ? 'eager' : 'lazy'}
           />
         ))}
         <div className="carousel-overlay">
